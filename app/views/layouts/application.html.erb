@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <title>Crowdflame</title>
+  <link rel="stylesheet" href="http://use.typekit.net/c/6a21cd/myriad-pro:i3:i4:i6:n3:n4:n7.XcD:P:2,Xc8:P:2,XcM:P:2,Xc9:P:2,XcH:P:2,Xc0:P:2/d?3bb2a6e53c9684ffdc9a9afe135b2a62d0c5cfebd5c62bc6cb59539a88dc0caf1219a633f0f986422b0e9f2dcdb29d4a6f67a3a20b54d5070a42b629cc0c6f9a64035f1a13b36f59f92dd2d272a131439d7594b71600801883" />
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= render 'shared/navbar/navbar' %>
+
+  <%= yield %>
+
+  <footer id="footer">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </footer>
+
+</body>
+</html>

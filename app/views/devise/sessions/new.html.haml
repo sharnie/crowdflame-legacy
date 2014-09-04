@@ -1,0 +1,26 @@
+#fullpage
+  .section#sign-up
+    .container.cf-intro
+
+      %section.col-sm-offset-3.col-sm-6.no-padding
+        %section.sign-up
+
+          %h3.p-b-lg.text-center.font-white Sign In
+
+          .panel.panel-default
+            .panel-body
+
+              = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "sign-up-form no-padding", autocomplete: "off"}) do |f|
+
+                .form-group
+                  = f.text_field :email, class: "form-control", placeholder: "Email"
+
+                .form-group
+                  = f.password_field :password, class: "form-control", placeholder: "Password"
+
+                .form-group
+                  = f.submit "Log In", class: "btn btn-primary btn-hg font-bold"
+
+                %small.text-muted
+                  Do not have an account?
+                  = link_to "Sign Up", new_user_registration_path

@@ -1,0 +1,20 @@
+#fullpage
+  .section#landing
+
+    .container.cf-intro
+      %section{ class: "col-sm-6" }
+        %section{ class: "callout" }
+          %h1.logo
+            %span.font-light CrowdFlame
+
+          %p.desc.font-light Engage with popular Instagram users network and get exposure
+
+          .sign-in-button
+            = link_to("Create an Account", new_user_registration_path, class: "btn btn-primary btn-hg font-bold")
+            %small.font-white
+              Already have an account?
+              = link_to("Sign In", new_user_session_path, class: "font-white font-bold")
+
+      %section.col-sm-6{style: "position:relative"}
+        .iphone
+          = image_tag("iphone.png")

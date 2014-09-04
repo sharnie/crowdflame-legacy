@@ -1,0 +1,44 @@
+
+.container.cf-intro
+  
+  %section.col-sm-offset-3.col-sm-6.no-padding
+    %section.sign-up
+
+      %h3.p-b-lg.text-center.font-white Create an Account
+
+      .panel.panel-default
+        .panel-body
+
+          - if session[:current_instagram_user]
+            .connected-account
+              .has-feedback.has-success
+                %i{class: "form-control-feedback glyphicon glyphicon-remove", data: {:"bv-icon-for" => "first_name"}, style: "top: 0px; display: block;"}
+                %a{href: "#", class: "btn btn-primary btn-inverse btn-hg font-light btn-inverse"}
+
+                  %span{class: "profile-picture pull-left thumb-md"}
+                    = image_tag(session[:current_instagram_user]["user"]["profile_picture"], class: "img-circle")
+
+                  %span{class: "user-info"}
+                    %p{class: "full-name text-left"}
+                      = "@#{session[:current_instagram_user]["user"]["username"]}"
+                    %p{class: "status text-left"} Instagram connected
+          - else
+            / %a.btn.btn-primary.btn-inverse.btn-hg.font-light.btn-inverse{href: "#"} Connect Instagram
+
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign-up-form", autocomplete: "off"}) do |f|
+
+            .form-group
+              = f.text_field :email, class: "form-control", placeholder: "Email"
+
+            .form-group
+              = f.password_field :password, class: "form-control", placeholder: "Password"
+
+            .form-group
+              = f.text_field :post_code, class: "form-control", placeholder: "Post Code"
+
+            .form-group
+              = f.submit "Sign Up", class: "btn btn-primary btn-hg font-bold"
+
+            %small.text-muted
+              Already have an account?
+              = link_to "Log In", new_user_session_path

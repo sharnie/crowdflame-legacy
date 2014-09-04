@@ -1,0 +1,29 @@
+%section.content.cf-account-settings.bg-grey
+  .container
+
+    .row
+      .col-md-6.col-md-offset-3
+        %ul.nav.nav-tabs{role: "tablist"}
+          = list_link("account", edit_user_registration_path)
+            
+          / %li
+          /   %a{href: "#"} Payment
+          / %li
+          /   %a{href: "#"} Connection
+
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "sign-up-form", autocomplete: "off"}) do |f|
+
+          .form-group
+            = f.text_field :first_name, class: "form-control", placeholder: "First name"
+
+          .form-group
+            = f.text_field :last_name, class: "form-control", placeholder: "Last name"
+
+          .form-group
+            = f.text_field :email, class: "form-control", placeholder: "Email"
+
+          .form-group
+            = f.text_field :post_code, class: "form-control", placeholder: "Post code"
+
+          .form-group
+            = f.submit "Save Changes", class: "btn btn-primary btn-hg font-bold block"
