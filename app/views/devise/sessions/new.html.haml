@@ -1,26 +1,27 @@
-#fullpage
-  .section#sign-up
-    .container.cf-intro
+.container.cf-intro
 
-      %section.col-sm-offset-3.col-sm-6.no-padding
-        %section.sign-up
+  %section.col-sm-offset-3.col-sm-6.no-padding
+    %section.sign-up
+      = render 'shared/flash'
 
-          %h3.p-b-lg.text-center.font-white Sign In
+      %h3.p-b-lg.text-center Sign In
 
-          .panel.panel-default
-            .panel-body
+      .panel.panel-default
 
-              = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "sign-up-form no-padding", autocomplete: "off"}) do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "cf-form no-padding", autocomplete: "off"}) do |f|
 
-                .form-group
-                  = f.text_field :email, class: "form-control", placeholder: "Email"
+          .form-group
+            = f.text_field :email, class: "form-control", placeholder: "Email"
 
-                .form-group
-                  = f.password_field :password, class: "form-control", placeholder: "Password"
+          .form-group
+            = f.password_field :password, class: "form-control", placeholder: "Password"
 
-                .form-group
-                  = f.submit "Log In", class: "btn btn-primary btn-hg font-bold"
+          .form-group
+            = f.button "Log In", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."}
 
-                %small.text-muted
-                  Do not have an account?
-                  = link_to "Sign Up", new_user_registration_path
+          %small.text-muted
+            %p
+              = link_to "Forgot password?", new_user_password_path
+          %small.text-muted
+            Do not have an account?
+            = link_to "Sign Up", new_user_registration_path

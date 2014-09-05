@@ -53,7 +53,7 @@
   font-weight: 400;
 }
 .form-control::-webkit-input-placeholder {
-  color: #D4D4D4;
+  color: rgba(0,0,0,0.40);
 }
 /* Form Feedback */
 .form-control-feedback {
@@ -145,4 +145,26 @@
 .panel {
   box-shadow: none;
   border: none;
+}
+
+/* Alert */ 
+.alert {
+  border-color: transparent;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.alert-info {
+  background-color: #72C8FA;
+  color: #fff;
+}
+.close {
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: inherit;
+  color: #333;
+  text-shadow: 0 1px 0 white;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
 }

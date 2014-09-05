@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :offers
+  has_one  :payment
 
-  validates :email, :password, presence: false
+  validates_presence_of :post_code
 
 end

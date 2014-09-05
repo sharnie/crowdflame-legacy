@@ -1,0 +1,3 @@
+$("#_settings_payment_email").val("<%= current_user.payment.email %>");
+
+$("#flash-container").html("<%= escape_javascript(render partial: 'shared/flash') %>");

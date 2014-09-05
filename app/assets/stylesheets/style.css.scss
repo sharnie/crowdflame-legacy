@@ -62,11 +62,14 @@ a, a:hover, a:focus {
 }
 
 /* Margin Helper */
+.m-b-md {
+  margin-bottom: 15px;
+}
 .m-t-md {
-  margin-top: 15px !important;
+  margin-top: 15px;
 }
 .m-t-lg {
-  margin-top: 30px !important;
+  margin-top: 30px;
 }
 
 /* Padding Helper */ 
@@ -261,19 +264,22 @@ a, a:hover, a:focus {
 
 
 /*
- * Sign Up Page
+ * Form Helper
  *
  */
+.container.form-wrapper {
+  max-width: 660px;
+}
 .sign-up {
   margin-top: 50px;
 }
 .sign-up .btn {
   width: 100%;
 }
-.sign-up-form button.btn {
+.cf-form button.btn {
   width: 100%;
 }
-.sign-up-form .form-control {
+.cf-form .form-control {
   padding: 24px 18px;
   font-size: 18px;
 }
@@ -427,10 +433,10 @@ a, a:hover, a:focus {
 }
 
 /*
- * FullPage.js Section
+ * fullpage background
  *
  */ 
-.section::before {
+.full-page::before {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -440,13 +446,18 @@ a, a:hover, a:focus {
   background-color: #333;
   opacity: 0.69;
 }
-.section#landing {
-  background-image: url('https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg');
+.full-page {
+  padding-top: 1px !important;
+  height: 100%;
+  margin: 0px;
   background-size: cover;
+  overflow-y: scroll;
 }
-.section#sign-up {
+.full-page#landing {
+  background-image: url("https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg");
+}
+.full-page#sign-up {
   background-image: url('https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg');
-  background-size: cover;
 }
 
 /* Footer */

@@ -1,9 +1,7 @@
-$(document).ready(function() {
+$(document).on('page:load', function() {
 
-    $('#fullpage').fullpage();
-    
     // Sign Up Form Validations
-    $('.sign-up-form').bootstrapValidator({
+    $('.cf-form').bootstrapValidator({
         message: 'This value is not valid',
         fields: {
             first_name: {

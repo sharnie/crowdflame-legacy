@@ -12,12 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
 //= require bootstrapValidator.min.js
-
-//  fullPage.js dependencies
-//= require jquery.easings.min.js
-//= require jquery.slimscroll.min.js
-//= require jquery.fullPage.js
 //= require_tree .

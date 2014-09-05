@@ -12,6 +12,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'figaro'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'devise'
 gem 'instagram'
 
@@ -19,10 +20,14 @@ group :production do
   gem 'thin'
 end
 
-group :development, :test do
+group :development do
   gem 'pry'
+end
+
+group :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers'
+  gem 'capybara'
   gem "factory_girl_rails"
-  gem "capybara"
   gem "guard-rspec"
 end
