@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :settings do
       collection do
         resources :payment, only: [:index, :new, :create]
+        resources :socialconnections, path: :connection
       end
     end
 

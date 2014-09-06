@@ -9,6 +9,7 @@ $pimary-color: #E55E64;
 /* Desktop & Laptop */
 @media(min-width:1200px){}
 
+
 * {
   -webkit-font-smoothing: antialiased;
 }
@@ -283,22 +284,33 @@ a, a:hover, a:focus {
   padding: 24px 18px;
   font-size: 18px;
 }
-/* Instagram Auth */
+
+/*
+ * Social Connections
+ *
+ */
 .connected-account {
   overflow: hidden;
 }
 .connected-account .btn {
-  padding: 5px 18px;
+  padding: 10px 18px;
+}
+.connected-account .disconnect {
+  padding: 22px;
+  line-height: 1;
 }
 .connected-account .btn:hover {
-  background-color: transparent;
-  color: #E55E64;
-  border-color: #E55E64;
+  color: #fff;
   cursor: default;
 }
 .connected-account .btn:focus, .connected-account .btn:active, .connected-account .btn:hover {
   box-shadow: none;
-  border: 1px solid #E55E64;
+}
+.connected-account .has-success .form-control-feedback {
+  color: #fff !important;
+}
+.connected-account .form-control-feedback {
+  top: 15px !important;
 }
 .connected-account .profile-picture {
   margin-right: 15px;

@@ -1,3 +1,31 @@
+var flashContainer = $("#flash-container");
+    flashContainer.html(''); // reset
+
+var Alert = {
+  markup: function(type, message) {
+    html = [
+      "<div class='alert alert-"+ type +"'>",
+        "<button type='button' class='close' data-dismiss='alert'>×</button>",
+        message,
+      "</div>",
+    ];
+
+    return html.join("\n");
+  },
+  errors: function(message) {
+    flashContainer.html( Alert.markup("danger", message) );
+  }
+}
+
+// Display user email
 $("#_settings_payment_email").val("<%= current_user.payment.email %>");
 
+// Display flash messages
 $("#flash-container").html("<%= escape_javascript(render partial: 'shared/flash') %>");
+
+// Payment Errors
+var errorFullMessages = "<%= escape_javascript(@payment.errors.full_messages.first) %>";
+
+if(errorFullMessages.length) {
+  Alert.errors(errorFullMessages);
+}

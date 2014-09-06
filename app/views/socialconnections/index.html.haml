@@ -1,0 +1,27 @@
+%section.content.cf-account-settings.bg-grey
+  .container
+
+    .row
+      .col-md-6.col-md-offset-3
+        #flash-container
+        = render "shared/flash"
+        = render "shared/settings/nav_tabs"
+
+        = form_for(:socialconnection, remote: true, html: {class: "cf-form"}) do |f|
+          .form-group
+            .connected-account
+              .has-feedback.has-success
+                %i.form-control-feedback.glyphicon.glyphicon-remove
+                = f.button class: "btn btn-success btn-hg font-light block", method: :patch, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Disconnecting..."} do
+
+                  %span{class: "profile-picture pull-left thumb-md"}
+                    = image_tag(avatar_url(current_user), class: "img-circle")
+
+                  %span{class: "user-info"}
+                    %p{class: "full-name text-left"}
+                      = "#{current_user.first_name} #{current_user.last_name}"
+                    %p{class: "status text-left"} Instagram connected
+
+          .form-group
+            .connected-account
+              = f.button "Connect Instagram", style: "height: 62px", class: "btn btn-success btn-hg font-bold block disconnect", method: :patch, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Disconnecting..."}

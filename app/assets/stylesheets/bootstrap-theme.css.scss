@@ -148,6 +148,12 @@
 }
 
 /* Alert */ 
+@media(max-width:767px){
+  .alert {
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
+}
 .alert {
   border-color: transparent;
   padding: 10px 15px;
@@ -156,6 +162,10 @@
 }
 .alert-info {
   background-color: #72C8FA;
+  color: #fff;
+}
+.alert-danger {
+  background-color: #C95F77;
   color: #fff;
 }
 .close {

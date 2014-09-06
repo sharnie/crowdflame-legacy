@@ -1,5 +1,5 @@
 %section.content.cf-account-settings.bg-grey
-  .container.form-wrapper
+  .container
 
     .row
       .col-sm-offset-3.col-sm-6
@@ -21,4 +21,4 @@
             = f.text_field :post_code, class: "form-control", placeholder: "Post code"
 
           .form-group
-            = f.button "Save Changes", class: "btn btn-primary btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+            = f.button "Save Changes", class: "btn btn-success btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}

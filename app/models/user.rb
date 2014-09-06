@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :offers
+  has_many :socialconnections
   has_one  :payment
 
   validates_presence_of :post_code
