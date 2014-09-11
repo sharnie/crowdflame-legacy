@@ -15,9 +15,12 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'devise'
 gem 'instagram'
+gem 'acts-as-taggable-on'
 
 group :production do
   gem 'thin'
+  gem 'puma'
+  gem 'rails_12factor'
 end
 
 group :development do

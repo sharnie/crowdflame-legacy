@@ -1,0 +1,51 @@
+%h4.m-t-lg.m-b-sm Take a look (preview)
+
+%section.offer
+  %section.row
+    .col-sm-3.col-md-4.no-padding
+      .offer-image
+        = image_tag "http://photos-c.ak.instagram.com/hphotos-ak-xpa1/923996_420201541451842_175001463_n.jpg"
+
+    .col-sm-9.col-md-8.no-padding
+      .offer-details
+        %a{class: "offer-title font-bold", href:"#"}
+          %span.offer-price<
+            $
+            %span> 5
+
+          %span< 
+            for
+            %span#title-text title here...
+
+        %span{class: "offer-author"}
+          by
+          %a{class: "font-bold", href: "#"}
+            @chrisbrown
+
+        .offer-stats
+          %span{class: "offer-rating"}
+            %span{class: "glyphicon glyphicon-star active"}
+            %span{class: "glyphicon glyphicon-star active"}
+            %span{class: "glyphicon glyphicon-star active"}
+            %span{class: "glyphicon glyphicon-star"}
+            %span{class: "glyphicon glyphicon-star"}
+            %span (120)
+
+          - if current_user.socialconnections
+            .offer-user-network
+              .text-center
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t
+                    = current_user.socialconnections.provider("instagram").followers
+                  %p.text-muted Followers
+
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t
+                    = current_user.socialconnections.provider("instagram").following
+                  %p.text-muted Following
+
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t
+                    = current_user.socialconnections.provider("instagram").media_count
+                  %p.text-muted Media
+

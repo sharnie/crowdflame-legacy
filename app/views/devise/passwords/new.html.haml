@@ -11,7 +11,7 @@
         = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "cf-form no-padding", autocomplete: "off" }) do |f|
 
           .form-group
-            = f.text_field :email, autofocus: true, class: "form-control", placeholder: "Email"
+            = f.text_field :email, autofocus: true, class: "form-control input-hg", placeholder: "Email"
 
           .form-group
             = f.button "Send Password", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."}

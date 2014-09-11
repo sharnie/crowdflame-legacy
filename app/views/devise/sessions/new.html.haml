@@ -11,10 +11,10 @@
         = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "cf-form no-padding", autocomplete: "off"}) do |f|
 
           .form-group
-            = f.text_field :email, class: "form-control", placeholder: "Email"
+            = f.text_field :email, class: "form-control input-hg", placeholder: "Email"
 
           .form-group
-            = f.password_field :password, class: "form-control", placeholder: "Password"
+            = f.password_field :password, class: "form-control input-hg", placeholder: "Password"
 
           .form-group
             = f.button "Log In", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."}

@@ -5,6 +5,12 @@
   border: none;
 }
 
+/* List */
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
 /* Button */
 .btn {
   border: none;
@@ -55,6 +61,13 @@
 .form-control::-webkit-input-placeholder {
   color: rgba(0,0,0,0.40);
 }
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 /* Form Feedback */
 .form-control-feedback {
   top: 8px !important;
@@ -66,6 +79,7 @@
 .has-success .form-control-feedback {
   color: #E55E64 !important;
 }
+
 
 /*
  * Navigation
@@ -177,4 +191,9 @@
   text-shadow: 0 1px 0 white;
   opacity: 0.2;
   filter: alpha(opacity=20);
+}
+
+/* Text */
+.text-muted {
+  color: rgba(0,0,0,0.45);
 }

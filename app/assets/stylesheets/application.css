@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require bootstrapValidator.min.css
- *= require jquery.fullPage.css
  *= require font-awesome
  *= require_self
  */

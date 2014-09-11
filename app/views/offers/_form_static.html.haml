@@ -1,0 +1,21 @@
+= render "shared/form/errors", form: @offer
+
+.panel.panel-default
+  .panel-body
+    = form_for(@offer, html: {class: "offer-form", autocomplete: "off"}) do |f|
+      .field-group
+        #static
+          / %span#dollar $5
+          / =# f.number_field :price, class: "form-control", id: "price", value: "5", placeholder: "5", disabled: true
+          %span#for{title: "Contact us for custom price", data: {toggle: "tooltip", placement: "left"}} $5 for
+        = f.text_area :title, class: "form-control", size: "30x2", value: "a shoutout...", maxlength: 70
+
+      = select(:socialconnection, :id, options_from_collection_for_select(current_user.socialconnections.all, :id, :username), { include_blank: false }, class: "form-control", style: "width: initial;")
+
+      = f.text_area :description, class: "form-control", size: "30x3", placeholder: "Description"
+
+      = f.select(:delivery, options_for_select([1, 2, 3, 4, 5]), {include_blank: "Days to Deliver"}, class: "form-control", style: "width: initial;")
+
+      = f.text_area :instructions, class: "form-control", size: "30x3", placeholder: "Instructions for buyer"
+
+      = f.submit "Save Offer", class: "btn btn-info", data: {disable_with: "Flaming... Please wait"}

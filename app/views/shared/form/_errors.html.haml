@@ -1,0 +1,8 @@
+- if form.errors.any?
+  %div.alert.alert-danger
+    %button.close{type: "buton", data: {dismiss: "alert"}} ×
+    %ul
+      - form.errors.full_messages.each do |message|
+        %li
+          &middot;
+          = "#{message}"

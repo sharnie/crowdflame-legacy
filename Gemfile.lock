@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.4.1)
+      activerecord (>= 3.2, < 5)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.0)
@@ -129,6 +131,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.9.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -216,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   bootstrap-sass
   capybara
   devise
@@ -230,6 +235,7 @@ DEPENDENCIES
   jquery-rails
   pg
   pry
+  puma
   rails (= 4.1.4)
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)

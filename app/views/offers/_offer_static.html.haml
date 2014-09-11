@@ -1,0 +1,42 @@
+.col-xs-12.col-md-6
+  %section.offer
+
+    %section.row
+
+      .col-sm-3.col-md-4.no-padding
+        .offer-image
+          = image_tag "http://jamaicars.weebly.com/uploads/4/2/3/9/4239917/7800316_orig.jpg"
+
+      .col-sm-9.col-md-8.no-padding
+        .offer-details
+          %a{class: "offer-title font-bold", href:"#"}
+            %span{class: "offer-price"} $5
+            for a shoutout to my 10,000 followers. More line in the title something
+
+          %span{class: "offer-author"}
+            by
+            %a{class: "font-bold", href: "#"}
+              @chrisbrown
+
+          .offer-stats
+            %span{class: "offer-rating"}
+              %span{class: "glyphicon glyphicon-star active"}
+              %span{class: "glyphicon glyphicon-star active"}
+              %span{class: "glyphicon glyphicon-star active"}
+              %span{class: "glyphicon glyphicon-star"}
+              %span{class: "glyphicon glyphicon-star"}
+              %span (120)
+
+            .offer-user-network
+              .text-center
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t 5,860
+                  %p.text-muted Followers
+
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t 10,450
+                  %p.text-muted Following
+
+                .count-box.b-r.pull-left
+                  %h5.font-bold.m-t 7,230
+                  %p.text-muted Media

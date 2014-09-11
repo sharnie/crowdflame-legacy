@@ -9,6 +9,6 @@
 
         = form_for(:payment, remote: true, html: {class: "cf-form"}) do |f|
           .form-group
-            = f.text_field :email, value: @payment_email,class: "form-control", placeholder: "Payment Email"
+            = f.text_field :email, value: @payment_email,class: "form-control input-hg", placeholder: "Payment Email"
 
           = f.button "Save Changes", class: "btn btn-success btn-hg font-bold", method: :patch, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}

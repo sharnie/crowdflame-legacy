@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrapValidator.min.js
+//= require bootstrap-tagsinput.min.js
+//= require jquery.autosize.min.js
 //= require_tree .

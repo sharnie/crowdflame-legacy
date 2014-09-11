@@ -24,6 +24,8 @@
                 $2,201.92
 
             %li
+              = link_to "Make an Offer", new_offer_path
+            %li
               = link_to "Account Settings", edit_user_registration_path
             %li.divider
             %li
@@ -32,7 +34,7 @@
         .notifications.pull-left
           .dropdown
             %a{data: {toggle: "dropdown"}, href: "#"}
-              %span{class: "glyphicon glyphicon-bell"}
+              %span.glyphicon.glyphicon-bell
 
             %ul{class: "dropdown-menu", role: "menu"}
               %li

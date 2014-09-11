@@ -16,7 +16,12 @@ Rails.application.routes.draw do
     resources :settings do
       collection do
         resources :payment, only: [:index, :new, :create]
-        resources :socialconnections, path: :connection
+        resources :socialconnections, path: :connections do
+          collection do
+            get :connect, as: :connect
+            get :callback
+          end
+        end
       end
     end
 
