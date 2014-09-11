@@ -4,7 +4,6 @@ class Socialconnection < ActiveRecord::Base
 
   validates_presence_of :user_id, :uid, :provider
   validates :uid, :uniqueness => {:scope => [:provider]}
-  validate  :custom_validation, :on => :update
 
   default_scope { order('created_at DESC') }
 
@@ -22,13 +21,6 @@ class Socialconnection < ActiveRecord::Base
 
   def self.provider provider_name
     Socialconnection.find_by(provider: provider_name)
-  end
-
-  def custom_validation
-    # binding.pry
-    if self.category.blank?
-      errors.add("Category can't be blank!")
-    end
   end
 
 end

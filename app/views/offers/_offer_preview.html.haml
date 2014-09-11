@@ -20,16 +20,16 @@
         %span{class: "offer-author"}
           by
           %a{class: "font-bold", href: "#"}
-            @chrisbrown
+            @username
 
         .offer-stats
           %span{class: "offer-rating"}
-            %span{class: "glyphicon glyphicon-star active"}
-            %span{class: "glyphicon glyphicon-star active"}
-            %span{class: "glyphicon glyphicon-star active"}
             %span{class: "glyphicon glyphicon-star"}
             %span{class: "glyphicon glyphicon-star"}
-            %span (120)
+            %span{class: "glyphicon glyphicon-star"}
+            %span{class: "glyphicon glyphicon-star"}
+            %span{class: "glyphicon glyphicon-star"}
+            %span (0)
 
           - if current_user.socialconnections
             .offer-user-network

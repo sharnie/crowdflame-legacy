@@ -15,8 +15,31 @@ $(document).ready(function(){
             } else {
                 attribute.html(placeholder);
             }
+        },
+        connectionSelect: function() {
+            $.each($('#socialconnection_id option'), function(index, element) {
+                $('<li/>').append(
+                    $('<a/>', {
+                        href: '#',
+                        html: $(this).text(),
+                        'data-socialconnection-id': $(this).val()
+                    })
+                ).appendTo('#socialconnections ul.dropdown-menu');
+            });
+
+            $('#socialconnections ul.dropdown-menu').on('click', 'li a', function(){
+                $('#socialconnection_id').val( $(this).data('socialconnection-id') );
+
+                // display account selected
+                accountButton = $(this).closest('#socialconnections').find('#account #account-selected');
+                accountButton.text( $(this).text() );
+
+                // trigger change event for offer preview
+                offerAccount.trigger('change');
+            });
         }
     }
+    offerForm.connectionSelect();
 
     // display offer preview price
     offerPriceInput.on('keyup', function(ev) {

@@ -69,6 +69,9 @@ a, a:hover, a:focus {
 .no-margin {
   margin: 0px !important;
 }
+.hide {
+  display: none !important;
+}
 
 /* Margin Helper */
 .m-b-sm {
@@ -85,6 +88,15 @@ a, a:hover, a:focus {
 }
 .m-t-lg {
   margin-top: 30px;
+}
+.m-r-sm {
+  margin-right: 5px;
+}
+.m-r-md {
+  margin-right: 15px;
+}
+.m-r-lg {
+  margin-right: 30px;
 }
 
 /* Padding Helper */ 
@@ -493,10 +505,9 @@ a, a:hover, a:focus {
 /* Offer Form */
 .offer-form span, .offer-form .form-control {
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: #596475;
-  margin: 5px 0px;
 }
 @media(max-width:767px) {
   .offer-form span,
@@ -504,6 +515,10 @@ a, a:hover, a:focus {
   .offer-form select.form-control {
     font-size: 16px;
   }
+}
+.offer-form .i {
+  // color: #8594A2;
+  color: inherit;
 }
 .offer-form .form-control {
   background-color: transparent;
@@ -528,11 +543,14 @@ a, a:hover, a:focus {
   }
 }
 .offer-form .btn {
-  margin-top: 4px;
   padding: 4px 15px 5px;
+  border-radius: 2px;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   display: block;
+}
+.offer-form .caret {
+  color: #fff;
 }
 .offer-form .field-group {
   position: relative;

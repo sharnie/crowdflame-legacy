@@ -4,7 +4,6 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
-    # binding.pry
   end
 
   def new
