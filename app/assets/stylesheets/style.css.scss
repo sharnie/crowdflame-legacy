@@ -21,10 +21,9 @@ html, body {
 body {
   font-family: 'myriad-pro', Helvetica, sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   color: #656565;
-  // overflow: hidden;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #596475;
@@ -451,6 +450,23 @@ a, a:hover, a:focus {
   margin-top: 0px;
   padding: 0px 0;
 }
+/* Small Devices */
+@media(min-width:768px){
+  .offer .offer-details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    height: 157px;
+  }
+  .offer .offer-details .offer-stats {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+  }
+}
 .offer .offer-details .offer-stats .offer-rating {
   color: #C7C7C7;
   font-size: 14px;
@@ -505,16 +521,9 @@ a, a:hover, a:focus {
 /* Offer Form */
 .offer-form span, .offer-form .form-control {
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #596475;
-}
-@media(max-width:767px) {
-  .offer-form span,
-  .offer-form .form-control, 
-  .offer-form select.form-control {
-    font-size: 16px;
-  }
 }
 .offer-form .i {
   // color: #8594A2;
@@ -535,12 +544,7 @@ a, a:hover, a:focus {
   margin-top: 0px;
   padding-top: 2px;
   padding-left: 10px;
-  font-size: 18px;
-}
-@media(max-width:767px) {
-  .offer-form select.form-control {
-    font-size: 16px;
-  }
+  font-size: 16px;
 }
 .offer-form .btn {
   padding: 4px 15px 5px;

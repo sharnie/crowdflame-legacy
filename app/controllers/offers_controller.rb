@@ -1,9 +1,13 @@
 class OffersController < ApplicationController
   before_action :validate_socialconnections, only: [:new]
   before_action :find_connection, only: [:create]
+  before_action :find_offer, only: [:show]
 
   def index
     @offers = Offer.all
+  end
+
+  def show
   end
 
   def new
@@ -36,6 +40,10 @@ class OffersController < ApplicationController
       elsif current_user.incomplete_connections.count > 0
         redirect_to socialconnections_path, notice: "Please update @#{current_user.incomplete_connections.first.keys.first} information before making an offer"
       end
+    end
+
+    def find_offer
+      @offer = Offer.find(params[:id])
     end
 
     def find_connection
