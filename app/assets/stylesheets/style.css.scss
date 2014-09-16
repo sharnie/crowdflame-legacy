@@ -187,6 +187,32 @@ a, a:hover, a:focus {
   background-color: #517fa4;
 }
 
+/* CF Select || Button Group */ 
+.btn-group .dropdown-menu {
+  right: inherit;
+}
+.btn-group .dropdown-menu:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -10px;
+  right: 71px;
+  bottom: auto;
+  border: 10px solid transparent;
+  border-top: 0;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+.btn-group .dropdown-menu:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: -9px;
+  right: 72px;
+  bottom: auto;
+  border: 9px solid transparent;
+  border-top: 0;
+  border-bottom-color: #fff;
+}
 
 
 /*
@@ -525,6 +551,19 @@ a, a:hover, a:focus {
   font-weight: 700;
   color: #596475;
 }
+.offer-form .btn-group {
+  width: 100%;
+}
+.offer-form .btn-group .btn {
+  width: 100%;
+  text-align: left;
+}
+.offer-form .caret-full .caret {
+  top: 15px;
+  position: absolute;
+  right: 13px;
+  color: inherit;
+}
 .offer-form .i {
   // color: #8594A2;
   color: inherit;
@@ -538,7 +577,7 @@ a, a:hover, a:focus {
   font-weight: 700;
 }
 .offer-form .form-control::-webkit-input-placeholder {
-  color: #8594A2;
+  color: #D7DDE3;
 }
 .offer-form select.form-control {
   margin-top: 0px;
@@ -550,71 +589,38 @@ a, a:hover, a:focus {
   padding: 4px 15px 5px;
   border-radius: 2px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
+  height: 36px;
   display: block;
-}
-.offer-form .caret {
-  color: #fff;
 }
 .offer-form .field-group {
   position: relative;
 }
-.offer-form .field-group #static {
+.offer-form .field-group #price-title {
   position: absolute;
 }
-.offer-form .field-group #static #dollar {
-  position: relative;
-  top: 2px;
-  left: 10px;
+.offer-form .field-group #price-title .select-price {
+  // border: none;
+  // text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.09);
+  font-size: 18px;
 }
-.offer-form .field-group #static #price {
-  background-color: transparent;
-  position: relative;
-  top: 2px;
-  left: 4px;
-  width: 16px;
-  height: 38px;
-  padding: 0px;
-  border-color: transparent;
-  color: #8594A2 !important;
-  webkit-appearance: none;
+.offer-form .field-group #price-title .btn-group .btn {
+  height: 36px;
+  border-radius: 2px 0 0 2px !important;
 }
 @media(max-width:767px) {
-  .offer-form .field-group #static #price {
-    height: 32px;
-    width: 16px;
-    padding-right: 0px;
+  .offer-form .field-group #price-title .btn-group .btn {
+    font-size: 16px;
   }
 }
-.offer-form .field-group #static #for {
-  position: absolute;
-  left: 15px;
-  top: 7px;
-  width: 56px;
-  line-height: 1.4;
-  color: #929FAC;
-}
-@media(max-width:767px) {
-  .offer-form .field-group #static #for {
-    left: 13px;
-  }
+.offer-form .field-group input#offer_title {
+  overflow: hidden;
+  line-height: 1.3;
+  text-indent: 4.000em;
+  height: 36px;
 }
 .offer-form textarea {
   resize: none;
-}
-.offer-form .field-group textarea#offer_title {
-  overflow: hidden;
-  line-height: 1.3;
-  text-indent: 3.000em;
-}
-@media(max-width:767px) {
-  .offer-form .field-group textarea#offer_title {
-    text-indent: 2.808em;
-  }
-}
-.offer-form .field-group #static #price,
-.offer-form .field-group textarea#offer_title::first-letter {
-  text-transform: lowercase;
 }
 
 

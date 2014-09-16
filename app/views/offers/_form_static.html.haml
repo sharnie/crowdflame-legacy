@@ -1,46 +1,30 @@
-= render "shared/form/errors", form: @offer
+=# render "shared/form/errors", form: @offer
 
 .panel.panel-default
   .panel-heading
     .panel-title
       Create an Offer
 
-  .panel-body
-    = form_for(@offer, html: {class: "offer-form", autocomplete: "off"}) do |f|
-      .field-group.m-b-sm
-        = f.label :title, "Title"
-        #static
-          / %span#dollar $5
-          =# f.number_field :price, class: "form-control", id: "price", value: "5", placeholder: "5", disabled: true
-          %span#for{title: "Contact us for custom price", data: {toggle: "tooltip", placement: "left"}} $5 for
-        = f.text_area :title, class: "form-control", size: "30x1", placeholder: "a shoutout", maxlength: 70
-
-      .form-group.m-b-sm
-        = f.label :instructions, "Instructions for Buyer"
-        = f.text_area :instructions, class: "form-control", size: "30x2", placeholder: "provide username and caption for shoutout"
+  = form_for(@offer, html: {class: "offer-form", autocomplete: "off"}) do |f|
+    .panel-body
+      .field-group.m-b-md
+        = f.label :title
+        #price-title
+          = f.select(:delivery, options_for_select( offer_price ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default select-price'})
+        = f.text_field :title, class: "form-control", size: "30x1", placeholder: "for a shoutout", maxlength: 70
 
       .form-group
-        = f.label :delivery, class: "block"
-        = f.select(:delivery, options_for_select([1, 2, 3, 4, 5]), {include_blank: "Days to Deliver"}, class: "form-control", style: "width: initial;")
+        .row
+          .col-sm-6
+            = f.label :delivery, "Days to Deliver", class: "block"
+            = f.select(:delivery, options_for_select( delivery_days ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
+          .col-sm-6
+            = f.label :socialconnection, "Account Offer", class: "block"
+            = select(:socialconnection, :id, options_from_collection_for_select(current_user.socialconnections.all, :id, :username), { include_blank: false }, class: "form-control cf-select", data: { 'button-class' => 'btn btn-default  caret-full' })
 
-      =# f.text_area :description, class: "form-control", size: "30x3", placeholder: "Description"
+      .form-group.m-b-sm
+        = f.label :instructions, "Write instructions for buyer"
+        = f.text_area :instructions, class: "form-control", size: "30x2", placeholder: "Example: Provide username, image/video and caption for shoutout"
 
-
-        
-      .pull-right
-        = f.submit "Post", class: "btn btn-info", data: {disable_with: "Flaming..."}
-
-      .pull-left
-        = select(:socialconnection, :id, options_from_collection_for_select(current_user.socialconnections.all, :id, :username), { include_blank: false }, class: "form-control hide")
-
-        #socialconnections.btn-group.m-r-sm
-          %button.btn.btn-primary.dropdown-toggle#account{data: {toggle: "dropdown"}}
-            %i.i.i-user3
-            %b#account-selected Account
-            %span.caret
-            %span.sr-only Toggle Dropdown
-
-          %ul.dropdown-menu{ role: "menu" }
-            / - current_user.socialconnections.each do |connection|
-            /   %li
-            /     = link_to connection.username, "#"
+    .panel-footer
+      = f.submit "Save & Continue", class: "btn btn-success", data: {disable_with: "Flaming..."}
