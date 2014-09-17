@@ -1,11 +1,7 @@
 var CrowdFlame = {
     init: function() {
-
       // init select with class name
       CrowdFlame.select('.cf-select');
-
-      // Bootstrap
-      $('[data-toggle="tooltip"]').tooltip();
     },
     select: function(selector) {
         var selectElements = $(selector);
@@ -58,11 +54,15 @@ var CrowdFlame = {
             $(selectModel).on('click', 'ul.dropdown-menu li a', function(ev) {
                 ev.preventDefault();
 
-                $(selectElement).val( $(this).data('value') );
+                $( selectElement ).val( $(this).data('value') ); // change value of original select
 
+                // change display text for ul
                 button = $(this).closest('.btn-group').find('button');
                 button.text( $(this).text() || $(this).data('value') );
                 button.append( " " + selectCaret );
+
+                // selectedOption = $( selectElement ).find('select > option[value='+ $(this).data('value') +']')
+                // console.log( selectedOption.prop('selected', true) );
             });
 
         });

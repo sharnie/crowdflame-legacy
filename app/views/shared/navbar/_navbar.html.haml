@@ -1,12 +1,18 @@
 - if user_signed_in?
 
   %header{class: "header navbar navbar-default bg-white navbar-fixed-top", role: "navigation"}
-    .container
+    .container-fluid
 
       .navbar-brand.font-bold
         = link_to "CrowdFlame", root_path
 
-      .current-account.pull-right.m-t-md
+      .pull-left
+        %ul.shortcut
+          %li
+            = link_to(new_offer_path) do
+              %i.i.i-add-to-list
+
+      .current-account.pull-right
         .dropdown.pull-left
           %a{data: {toggle: "dropdown"}, href: "#"}
             %span{class: "user-info pull-left hidden-xs"}
@@ -22,9 +28,6 @@
                 %span{class: "font-bold"}
                   Balance:
                 $2,201.92
-
-            %li
-              = link_to "Make an Offer", new_offer_path
             %li
               = link_to "Account Settings", edit_user_registration_path
             %li.divider

@@ -17,15 +17,6 @@ var offerForm = {
     }
 }
 
-// display offer preview price
-offerPriceInput.on('keyup', function(ev) {
-    ev.preventDefault();
-    var previewPrice = $('.offer-details').find('span.offer-price span'),
-        placeholder  = $(this).val();
-
-        defaultPlaceholder = "5";
-        offerForm.previewText(previewPrice, defaultPlaceholder, placeholder);
-});
 
 // display offer preview title
 offerTitleInput.on('keyup', function(ev) {
@@ -37,10 +28,14 @@ offerTitleInput.on('keyup', function(ev) {
         offerForm.previewText(previewTitle, defaultPlaceholder, placeholder);
 });
 
-// display offer username
-offerAccount.on('change', function(ev) {
-    console.log(this.value)
-    // $('.offer-author a')
+// display offer, account username
+$('#new_offer').on('click', 'ul.dropdown-menu li a', function(ev) {
+    ev.preventDefault();
+    var previewUsername = $('.offer-details').find('.offer-author a');
+
+        placeholder        = '@' + $(this).text();
+        defaultPlaceholder = "@username";
+        offerForm.previewText(previewUsername, defaultPlaceholder, placeholder);
 });
 
 // remove new line characters
@@ -54,4 +49,4 @@ $('.field-group textarea').on('keyup', function(ev){
 $(document).ready( offerForm.init() );
 
 // activate placeholder slideshow
-CrowdFlame.placeholderSlide('#offer_title', ["for a shoutout", "for likes on every picture", ""]);
+CrowdFlame.placeholderSlide('#offer_title', ["for a shoutout", "for fan poster", "for media feedbacks"]);
