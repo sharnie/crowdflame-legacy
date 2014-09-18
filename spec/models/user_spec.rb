@@ -14,7 +14,6 @@ describe User do
   context 'Validations' do
     it { should validate_uniqueness_of :email }
     it { should validate_presence_of   :password }
-    it { should validate_presence_of   :post_code }
   end
 
   context "Association" do

@@ -33,10 +33,10 @@
             = f.text_field :email, class: "form-control input-hg", placeholder: "Email"
 
           .form-group
-            = f.password_field :password, class: "form-control input-hg", placeholder: "Password"
+            = f.text_field :username, class: "form-control input-hg", placeholder: "Username"
 
           .form-group
-            = f.text_field :post_code, class: "form-control input-hg", placeholder: "Post Code"
+            = f.password_field :password, class: "form-control input-hg", placeholder: "Password"
 
           .form-group
             = f.button "Sign Up", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating..."}

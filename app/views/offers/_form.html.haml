@@ -6,9 +6,9 @@
   = form_for(@offer, html: {class: "offer-form", autocomplete: "off"}) do |f|
     .panel-body
       .field-group.m-b-md
-        = f.label :title
+        = f.label :title, "Offer Title"
         #price-title
-          = f.select(:delivery, options_for_select( offer_price ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default select-price'})
+          = f.select(:price, options_for_select( offer_price ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default select-price'})
         = f.text_field :title, class: "form-control", size: "30x1", placeholder: "for a shoutout", maxlength: 70
 
       .form-group
@@ -18,7 +18,11 @@
             = f.select(:delivery, options_for_select( delivery_days ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
           .col-sm-6
             = f.label :socialconnection, "Account Offer", class: "block"
-            = select(:socialconnection, :id, options_from_collection_for_select(current_user.socialconnections.all, :id, :username), { include_blank: false }, class: "form-control cf-select", data: { 'button-class' => 'btn btn-default  caret-full' })
+            = f.select(:socialconnection, options_for_select( socialconnection_options ), { include_blank: false }, class: "form-control cf-select", data: { 'button-class' => 'btn btn-default caret-full' })
+
+      .form-group.m-b-sm
+        = f.label :description
+        = f.text_area :description, class: "form-control", size: "30x2", placeholder: "Describe what you're offering. Keep it short and sweet!"
 
       .form-group.m-b-sm
         = f.label :instructions, "Write instructions for buyer"

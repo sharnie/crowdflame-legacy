@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'profiles/show'
-
   devise_for  :users,
   :controllers => {:registrations => "users/registrations"},
   :path => '',
@@ -29,6 +27,9 @@ Rails.application.routes.draw do
 
     resources :offers
   end
+
+  # user profile
+  get '/:id' => 'profiles#show', as: :user_profile
 
   root "landing#index"
 end

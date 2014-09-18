@@ -33,9 +33,11 @@ $('#new_offer').on('click', 'ul.dropdown-menu li a', function(ev) {
     ev.preventDefault();
     var previewUsername = $('.offer-details').find('.offer-author a');
 
-        placeholder        = '@' + $(this).text();
-        defaultPlaceholder = "@username";
-        offerForm.previewText(previewUsername, defaultPlaceholder, placeholder);
+        if( $(ev.target).closest('.col-sm-6').find('#socialconnection_id').length ) {
+            placeholder        = '@' + $(this).text();
+            defaultPlaceholder = "@username";
+            offerForm.previewText(previewUsername, defaultPlaceholder, placeholder);
+        }
 });
 
 // remove new line characters

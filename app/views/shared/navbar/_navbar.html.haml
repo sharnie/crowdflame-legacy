@@ -4,42 +4,76 @@
     .container-fluid
 
       .navbar-brand.font-bold
-        = link_to "CrowdFlame", root_path
+        = link_to "CF", root_path
 
       .pull-left
         %ul.shortcut
-          %li
+          %li.active
             = link_to(new_offer_path) do
               %i.i.i-add-to-list
 
-      .current-account.pull-right
-        .dropdown.pull-left
-          %a{data: {toggle: "dropdown"}, href: "#"}
-            %span{class: "user-info pull-left hidden-xs"}
-              %span{class: "account-balance text-left font-bold"} $2,201.92
-          
-            %span{class: "profile-picture thumb-md"}
-              = image_tag(avatar_url(current_user), class: "img-circle")
-              %b{class: "caret"}
-
-          %ul{class: "dropdown-menu", role: "menu", :'aria-labelledby' => "dLabel"}
-            %li{class: "visible-xs"}
-              %a{href: "#"}
-                %span{class: "font-bold"}
-                  Balance:
-                $2,201.92
-            %li
-              = link_to "Account Settings", edit_user_registration_path
-            %li.divider
-            %li
-              = link_to "Sign Out", destroy_user_session_path, method: :delete
-
-        .notifications.pull-left
-          .dropdown
+      %ul.current-account.pull-right
+        %li.pull-left
+          .dropdown.pull-left
             %a{data: {toggle: "dropdown"}, href: "#"}
-              %span.glyphicon.glyphicon-bell
+              %span{class: "user-info pull-left hidden-xs"}
+                %span{class: "account-balance text-left font-bold"} $2,201.92
 
-            %ul{class: "dropdown-menu", role: "menu"}
-              %li
+              %span{class: "profile-picture thumb-md"}
+                = image_tag(avatar_url(current_user), class: "img-circle")
+                %b{class: "caret"}
+
+            %ul{class: "dropdown-menu", role: "menu", :'aria-labelledby' => "dLabel"}
+              %li{class: "visible-xs"}
                 %a{href: "#"}
-                  Sharnie Ivery bought your offer
+                  %span{class: "font-bold"}
+                    Balance:
+                  $2,201.92
+              %li
+                = link_to "Account Settings", edit_user_registration_path
+              %li.divider
+              %li
+                = link_to "Sign Out", destroy_user_session_path, method: :delete
+
+        %li.pull-left
+          .notifications
+            .dropdown
+              %a{data: {toggle: "dropdown"}, href: "#"}
+                %span.glyphicon.glyphicon-bell
+
+              %ul{class: "dropdown-menu", role: "menu"}
+                %li
+                  %a{href: "#"}
+                    Sharnie Ivery bought your offer
+
+      / .current-account.pull-right
+      /   .dropdown.pull-left
+      /     %a{data: {toggle: "dropdown"}, href: "#"}
+      /       %span{class: "user-info pull-left hidden-xs"}
+      /         %span{class: "account-balance text-left font-bold"} $2,201.92
+          
+      /       %span{class: "profile-picture thumb-md"}
+      /         = image_tag(avatar_url(current_user), class: "img-circle")
+      /         %b{class: "caret"}
+
+      /     %ul{class: "dropdown-menu", role: "menu", :'aria-labelledby' => "dLabel"}
+      /       %li{class: "visible-xs"}
+      /         %a{href: "#"}
+      /           %span{class: "font-bold"}
+      /             Balance:
+      /           $2,201.92
+      /       %li
+      /         = link_to "Account Settings", edit_user_registration_path
+      /       %li.divider
+      /       %li
+      /         = link_to "Sign Out", destroy_user_session_path, method: :delete
+
+      /   .notifications.pull-left
+      /     .dropdown
+      /       %a{data: {toggle: "dropdown"}, href: "#"}
+      /         %span.glyphicon.glyphicon-bell
+
+      /       %ul{class: "dropdown-menu", role: "menu"}
+      /         %li
+      /           %a{href: "#"}
+      /             Sharnie Ivery bought your offer

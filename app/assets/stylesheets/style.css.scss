@@ -62,6 +62,9 @@ a, a:hover, a:focus {
   margin-left: 0;
   margin-right: 0;
 }
+.full-width {
+  width: 100% !important;
+}
 .no-padding {
   padding: 0px !important;
 }
@@ -239,7 +242,10 @@ a, a:hover, a:focus {
   left: auto;
 }
 .navbar .current-account {
-  padding: 11px 0px;
+  margin: 0;
+}
+.navbar .current-account > li {
+  padding: 11px 0;
 }
 .navbar .current-account .profile-picture {
   margin-left: 5px;
@@ -275,13 +281,15 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 
 /* Notification */
 .navbar .notifications .glyphicon {
-  border-left: 1px solid rgba(0,0,0,.15);
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
   margin-left: 15px;
   color: #596475;
   font-size: 26px;
   padding: 0px 12px;
-  margin-bottom: -4px;
+  margin-top: 1px;
   overflow: hidden;
+  display: inline-table;
+  vertical-align: middle;
 }
 
 /*

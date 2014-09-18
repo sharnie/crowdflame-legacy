@@ -34,27 +34,36 @@
                   / Form Body
                   %div{id: "collapse#{connection.id}", class: "panel-collapse collapse"}
                     .panel-body
-                      %small.m-b-sm.block.font-bold Account Information
 
                       .form-group
-                        = select(:category, :id, options_from_collection_for_select(Category.all, :id, :name, current_category(connection)), { include_blank: "Choose a Topic" }, class: "form-control", id: "category")
+                        .row
+                          .col-sm-6
+                            = f.label :category, class: "block"
+                            = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
 
-                      .form-group
-                        = f.text_field :tags, class: "form-control bootstrap-tagsinput", placeholder: "Tags", value: connection.tags
-                        %small
-                          %i.text-muted.font-light
-                            three tags separated with commas
+                          .col-sm-6
+                            = f.label :language, class: "block"
+                            = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+
+                      / .form-group
+                      /   .row
+
+                      / .form-group
+                      /   = f.text_field :tags, class: "form-control bootstrap-tagsinput", placeholder: "Tags", value: connection.tags
+                      /   %small
+                      /     %i.text-muted.font-light
+                      /       three tags separated with commas
 
 
-                      %small.m-b-sm.block.font-bold Target Audience
+                      / %small.m-b-sm.block.font-bold Target Audience
 
-                      .form-group
-                        = f.select(:age, options_for_select(form_collection(:age), connection.age), {include_blank: "Age"}, class: "form-control")
+                      / .form-group
+                      /   = f.select(:age, options_for_select(form_collection(:age), connection.age), {include_blank: "Age"}, class: "form-control")
 
-                      .form-group
-                        = f.select(:language, options_for_select(form_collection(:language), connection.language), {include_blank: "Language"}, class: "form-control")
+                      / .form-group
+                      /   = f.select(:language, options_for_select(form_collection(:language), connection.language), {include_blank: "Language"}, class: "form-control")
 
-                      = f.button "Save Changes", class: "btn btn-success btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+                      / = f.button "Save Changes", class: "btn btn-success btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
 
 
 

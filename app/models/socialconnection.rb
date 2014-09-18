@@ -1,6 +1,7 @@
 class Socialconnection < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+  has_many   :offers
 
   validates_presence_of :user_id, :uid, :provider
   validates :uid, :uniqueness => {:scope => [:provider]}

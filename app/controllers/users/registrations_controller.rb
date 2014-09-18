@@ -23,12 +23,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   
-private
-  def needs_password?(user, params)
-    user.email != params[:user][:email] || params[:user][:password].present?
-  end
+  private
 
-  def after_update_path_for
-    edit_user_registration_path
-  end
+    def needs_password?(user, params)
+      user.email != params[:user][:email] || params[:user][:password].present?
+    end
+
+    def after_update_path_for
+      edit_user_registration_path
+    end
+
+    def after_sign_up_path_for(resource)
+      edit_user_registration_path
+    end
 end

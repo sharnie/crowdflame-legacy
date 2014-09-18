@@ -9,10 +9,10 @@ feature "User Pages" do
       within "form" do
         fill_in "user_email",     with: "sharnieivery@gmail.com"
         fill_in "user_password",  with: "qwertyui"
-        fill_in "user_post_code", with: "12345"
+        fill_in "user_username",  with: "sharnieivery"
       end
       click_button "Sign Up"
-      expect(page).to have_text("Welcome! You have signed up successfully.")
+      expect(page).to have_text("Welcome! Please update your account information.")
     end
 
     scenario "Edit Account" do

@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :offers, dependent: :destroy
   has_many :socialconnections, dependent: :destroy
+  has_many :offers, through: :socialconnections
   has_one  :payment, dependent: :destroy
 
-  validates_presence_of :post_code
+  validates_presence_of :username
 
   def have_connections?
     self.socialconnections.size > 0 ? true : false
@@ -29,5 +29,9 @@ class User < ActiveRecord::Base
       incomplete << errors unless errors[connection.username].blank?
     end
     incomplete
+  end
+
+  def self.find_by_profile_name username
+    User.find_by(username: username)
   end
 end

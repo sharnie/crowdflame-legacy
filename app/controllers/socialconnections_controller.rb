@@ -36,7 +36,7 @@ class SocialconnectionsController < ApplicationController
     if connection.errors.count > 0
       flash[:error] = "#{connection.errors.full_messages.last.gsub(/(Uid\s)/, "Instagram account ")}. Please try again."
     else
-      flash[:notice] = "You're now connected. Update @#{connection.username} account information to start making offers."
+      flash[:notice] = "Connected! Please update @#{connection.username}'s account information to start making offers."
     end
   end
 
