@@ -15,6 +15,10 @@ ul, ol {
 .btn {
   border: none;
   outline: none;
+  padding: 7px 15px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 16px;
 }
 
 // BTN-PRIMARY
@@ -61,6 +65,18 @@ ul, ol {
 }
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
   background-color: #7AD8A0;
+  color: #fff;
+  border-color: transparent;
+  outline: none;
+}
+
+// BTN-WARNING
+.btn-warning {
+  background-color: #FFA16E;
+  color: #fff;
+}
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open>.dropdown-toggle.btn-warning {
+  background-color: #FFA16E;
   color: #fff;
   border-color: transparent;
   outline: none;

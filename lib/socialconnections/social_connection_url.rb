@@ -6,12 +6,12 @@ class SocialConnectionUrl
     end
   end
 
-  def self.callback provider, code=nil, user
+  def self.callback provider, code=nil
     case provider
     when "instagram"
       response = Instagram.get_access_token(code, redirect_uri: ENV['INSTAGRAM_REDIRECT_URI'])
       client   = Instagram.client(access_token: response.access_token)
-      Socialconnection.instagram_auth(user, client.user.merge(access_token: response.access_token))
+      client.user.merge(access_token: response.access_token, provider: provider)
     end
   end
 end

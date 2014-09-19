@@ -7,70 +7,14 @@
         = render "shared/flash"
         = render "shared/settings/nav_tabs"
 
-        - if @connections.count > 0
-          - @connections.each do |connection|
-            = form_for :socialconnection, url: socialconnection_path(connection), method: :patch, html: {class: "cf-form"} do |f|
-              .panel-group#accordion
-                .panel.panel-default
+        - if !session[:connection].blank?
+          = render "socialconnections/form_new", connection: session[:connection]
 
-                  .connect-account
-                    .has-feedback.has-success
-                      = link_to socialconnection_path(connection), method: :delete do
-                        %i.form-control-feedback.glyphicon.glyphicon-remove{data: {toggle: "tooltip", placement: "left", title: "Disconnect"}}
-
-
-                      = link_to "#collapse#{connection.id}", class: "btn btn-info btn-hg font-light block bg-#{connection.provider}", data: {toggle: "collapse", parent: "#accordion"} do
-
-                        %span.profile-picture.pull-left.thumb-md
-                          = image_tag(connection.profile_picture, class: "img-circle")
-
-                        %span.user-info
-                          %p.full-name.text-left
-                            = "@#{connection.username}"
-
-                          %p.status.text-left
-                            = "#{connection.provider.capitalize} connected"
-
-                  / Form Body
-                  %div{id: "collapse#{connection.id}", class: "panel-collapse collapse"}
-                    .panel-body
-
-                      .form-group
-                        .row
-                          .col-sm-6
-                            = f.label :category, class: "block"
-                            = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
-
-                          .col-sm-6
-                            = f.label :language, class: "block"
-                            = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
-
-                      / .form-group
-                      /   .row
-
-                      / .form-group
-                      /   = f.text_field :tags, class: "form-control bootstrap-tagsinput", placeholder: "Tags", value: connection.tags
-                      /   %small
-                      /     %i.text-muted.font-light
-                      /       three tags separated with commas
-
-
-                      / %small.m-b-sm.block.font-bold Target Audience
-
-                      / .form-group
-                      /   = f.select(:age, options_for_select(form_collection(:age), connection.age), {include_blank: "Age"}, class: "form-control")
-
-                      / .form-group
-                      /   = f.select(:language, options_for_select(form_collection(:language), connection.language), {include_blank: "Language"}, class: "form-control")
-
-                      / = f.button "Save Changes", class: "btn btn-success btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
-
-
-
+        - @socialconnections.each do |connection|
+          = render "socialconnections/form_update", connection: connection
+        
         .form-group
           .connect-account
-            / = f.button "Connect Instagram", style: "height: 62px", class: "btn btn-info btn-hg font-bold block disconnect", method: :patch, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Disconnecting..."}
-
             = link_to connect_socialconnections_path(:provider => "instagram"), class: "btn btn-info btn-hg font-bold block disconnect bg-instagram btn-auth", id: "connect-instagram", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Connecting..."} do
               %i.fa.fa-instagram
               Connect Instagram

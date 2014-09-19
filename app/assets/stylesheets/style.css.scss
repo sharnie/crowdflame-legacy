@@ -187,7 +187,7 @@ a, a:hover, a:focus {
 
 /* Social Network Background Color */
 .bg-instagram {
-  background-color: #517fa4;
+  background-color: #517fa4 !important;
 }
 
 /* CF Select || Button Group */ 
@@ -363,9 +363,6 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 .sign-up .btn {
   width: 100%;
 }
-.cf-form button.btn {
-  width: 100%;
-}
 .cf-form .form-control {
   font-size: 18px;
 }
@@ -375,14 +372,35 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   color: rgba(0,0,0,1);
 }
 .cf-form .bootstrap-tagsinput {
-  padding: 11px;
-  border: 1px solid #d4d4d4;
+  padding: 1px 11px;
+  border: 2px solid #E7EBEF;
   border-radius: 4px;
+  height: 36px;
 }
 .cf-form .bootstrap-tagsinput input {
   box-shadow: none;
   border: none;
   outline: none;
+  height: 24px;
+  margin-top: -1px;
+  vertical-align: middle;
+}
+.cf-form .panel-group .panel-footer {
+  border-top: 2px solid #eeeff0 !important;
+}
+.cf-form .btn-group .btn {
+  width: 100%;
+  text-align: left;
+}
+.cf-form .btn {
+  font-weight: 700;
+  font-size: 16px;
+}
+.cf-form .btn-group .caret-full .caret {
+  top: 15px;
+  position: absolute;
+  right: 13px;
+  color: inherit;
 }
 
 /*
@@ -615,11 +633,6 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   font-size: 16px;
 }
 .offer-form .btn {
-  padding: 4px 15px 5px;
-  border-radius: 2px;
-  font-weight: 700;
-  font-size: 16px;
-  height: 36px;
   display: block;
 }
 .offer-form .field-group {

@@ -1,0 +1,47 @@
+= form_for Socialconnection.new, html: {class: "cf-form"} do |f|
+  .panel-group#accordion
+    .panel.panel-default
+
+      / Head
+      .connect-account
+        .has-feedback.has-success
+          = link_to "#", method: :delete do
+            %i.form-control-feedback.glyphicon.glyphicon-remove{data: {toggle: "tooltip", placement: "left", title: "Disconnect"}}
+
+          = link_to "#collapse-#{ connection['id'] }", class: "btn btn-primary btn-hg font-light block", data: {toggle: "collapse", parent: "#accordion"} do
+
+            %span.profile-picture.pull-left.thumb-md
+              = image_tag(connection['profile_picture'], class: "img-circle")
+
+            %span.user-info
+              %p.full-name.text-left
+                = "@#{ connection['username'] }"
+
+              %p.status.text-left
+                = "Update before connecting"
+
+      / Body
+      %div{id: "collapse-#{ connection['id'] }", class: "panel-collapse collapse"}
+        .panel-body
+
+          .form-group
+            .row
+              .col-sm-6
+                = f.label :category, class: "block"
+                = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+
+              .col-sm-6
+                = f.label :tags
+                = f.text_field :tags, class: "form-control input-default bootstrap-tagsinput", placeholder: "Tags"
+
+          .form-group
+            .row
+              .col-sm-6
+                = f.label :language, class: "block"
+                = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+
+              .col-sm-6
+                = f.label :age, "Audience Age"
+                = f.select(:age, options_for_select(form_collection(:age)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+
+          = f.button "Save Connection", class: "btn btn-default btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
