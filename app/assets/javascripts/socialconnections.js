@@ -23,7 +23,7 @@ $(document).ready(function(){
     // Initialze tags input with validations
     $( '.bootstrap-tagsinput' ).tagsinput({
         maxTags: 3,
-        maxChars: 8,
+        maxChars: 15,
     });
 
     // disable input after three tags
@@ -34,6 +34,12 @@ $(document).ready(function(){
         if( connectionTagsArr.length >= 3 ) {
             $( '.bootstrap-tagsinput input' ).prop( "disabled", true );
         }
+    });
+
+    // remove inline style/width from bootstap tags input
+    $.each( $('.bootstrap-tagsinput input'), function(index, inputElement) {
+        $( inputElement ).removeAttr("style");
+        console.log( inputElement );
     });
 
     // Enable first collapse

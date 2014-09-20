@@ -21,16 +21,14 @@ describe Offer do
   end
 
   context "Create" do
-    before do
-      @user             = create(:user)
-      @socialconnection = @user.socialconnections.create(attributes_for(:socialconnection))
-    end
-
     it "should create offer" do
       expect do
-        offer             = @socialconnection.offers.create(attributes_for(:offer))
-        offer.category_id = @socialconnection.category_id
-        offer.save
+        @user             = create(:user)
+        @socialconnection = @user.socialconnections.create(attributes_for(:socialconnection))
+
+        # offer = @socialconnection.offers.create(attributes_for(:offer))
+        # offer.category_id = @socialconnection.category_id
+        # offer.save
       end.to change { Offer.count }.by(1)
     end
   end

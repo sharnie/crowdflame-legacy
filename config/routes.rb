@@ -20,6 +20,7 @@ Rails.application.routes.draw do
           collection do
             get :connect, as: :connect
             get :callback
+            get :clear_connection, as: :clear
           end
         end
       end

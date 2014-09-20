@@ -40,7 +40,10 @@ class OffersController < ApplicationController
       if !current_user.have_connections?
         redirect_to socialconnections_path, notice: "Please make at least 1 connection before making an offer"
       elsif current_user.incomplete_connections.count > 0
-        redirect_to socialconnections_path, notice: "Please update @#{current_user.incomplete_connections.first.keys.first}'s information before making an offer"
+        account_name = current_user.incomplete_connections.first.keys.first
+        missing_field = current_user.incomplete_connections.first[current_user.incomplete_connections.first.keys.first].keys.first
+        redirect_to socialconnections_path, notice: "Don't forget to add @#{account_name}'s #{missing_field} information!"
+        # "Please update @#{account_name}'s information before making an offer"
       end
     end
 

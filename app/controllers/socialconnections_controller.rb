@@ -1,40 +1,18 @@
 class SocialconnectionsController < ApplicationController
-  before_action :correct_user, only: [:update, :destroy]
-  before_action :connection_category, only: [:create]
+  before_action :find_connection, only: [:update, :destroy, :refresh_connection]
+  before_action :find_category,   only: [:create, :update]
 
   def index
-    @socialconnections = current_user.socialconnections
+    @socialconnections = current_user.socialconnections.order('updated_at DESC')
   end
 
   def new
     @socialconnection = Socialconnection.new
   end
 
-# {"username"=>"mbamg",
-#  "bio"=>
-#   "Welcome to the official Instagram channel for AMG Fans. Tag @MBAMG in your photos/videos.",
-#  "website"=>"http://mercedes-amg.com",
-#  "profile_picture"=>
-#   "http://images.ak.instagram.com/profiles/profile_511046930_75sq_1376772056.jpg",
-#  "full_name"=>"MERCEDES ///AMG",
-#  "counts"=>{"media"=>34, "followed_by"=>799, "follows"=>40},
-#  "id"=>"511046930",
-#  "access_token"=>"511046930.b0e2f63.3c58c2aa77ad427b836621bde731334b",
-#  "provider"=>"instagram"}
-
   def create
-    @socialconnection = current_user.socialconnections.create(connection_params) do |connection|
-      connection.category_id     = @category.id
-      connection.provider        = session[:connection]['provider']
-      connection.uid             = session[:connection]['id']
-      connection.followers       = session[:connection]['counts']['followed_by']
-      connection.following       = session[:connection]['counts']['follows']
-      connection.media_count     = session[:connection]['counts']['media']
-      connection.profile_picture = session[:connection]['profile_picture']
-      connection.access_token    = session[:connection]['access_token']
-      connection.username        = session[:connection]['username']
-      connection.bio             = session[:connection]['bio']
-    end
+    @socialconnection = Socialconnection.create_connection(current_user, connection_params, session[:connection])
+    @socialconnection.category_id = @category.id
 
     if @socialconnection.save
       session[:connection].clear
@@ -46,21 +24,22 @@ class SocialconnectionsController < ApplicationController
 
   def update
     @connection.update_attributes(connection_params)
+    @connection.category = @category
 
-    category = Category.find_by(params[:category])
-    if !category.blank?
-      @connection.category = category
-      @connection.topic    = category.name 
-      @connection.save
+    if @connection.save
       redirect_to socialconnections_path, notice: "Your connection has been updated. Start making offers!"
     else
-      redirect_to socialconnections_path
-      flash[:error] = "Don't forget to choose a topic for @#{@connection.username}!"
+      redirect_to socialconnections_path, error: "Please try again."
     end
   end
 
   def destroy
     @connection.destroy
+    redirect_to socialconnections_path
+  end
+
+  def clear_connection
+    session[:connection].clear
     redirect_to socialconnections_path
   end
 
@@ -71,6 +50,7 @@ class SocialconnectionsController < ApplicationController
   def callback
     session[:connection].clear
     connection = SocialConnectionUrl.callback("instagram", params[:code])
+
     if Socialconnection.find_by(uid: connection.id)
       flash[:error] = "Instagram account is already taken. Please try again!" 
     else
@@ -84,17 +64,13 @@ class SocialconnectionsController < ApplicationController
       params.require(:socialconnection).permit(:topic, :tags, :language, :age)
     end
 
-    def correct_user
+    def find_connection
       @connection = current_user.socialconnections.find(params[:id])
-      redirect_to root_path, error: "Unauthorize action." if @connection.nil?
+      redirect_to root_path, error: "Unauthorize action." if @connection.blank?
     end
 
-    def connection_category
+    def find_category
       @category = Category.find(params[:socialconnection][:category])
-      if @category.blank?
-        redirect_to socialconnections_path, notice: "Could not find category"
-      else
-        @category
-      end
+      redirect_to socialconnections_path, notice: "Could not find category" if @category.blank?
     end
 end

@@ -7,7 +7,7 @@
         = render "shared/flash"
         = render "shared/settings/nav_tabs"
 
-        - if !session[:connection].blank?
+        - unless session[:connection].blank?
           = render "socialconnections/form_new", connection: session[:connection]
 
         - @socialconnections.each do |connection|

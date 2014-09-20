@@ -92,6 +92,7 @@ ul, ol {
   border-color: #D4D4D4;
   color: #596475;
   font-weight: 400;
+  border-radius: 2px;
 }
 .form-control::-webkit-input-placeholder {
   color: rgba(0,0,0,0.40);
@@ -106,6 +107,21 @@ input[type=number]::-webkit-outer-spin-button {
 }
 :focus::-moz-placeholder{
   text-indent: -999px
+}
+.required-field {
+  color: #E55E64;
+}
+
+/* Form Control Default */
+.form-control.default {
+  border: 2px solid #E7EBEF;
+  color: #656565;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 2px;
+  line-height: 1.428571429;
+  height: 40px;
+  overflow: hidden;
 }
 
 
@@ -220,6 +236,7 @@ form .btn-group {
 .panel {
   box-shadow: none;
   border: none;
+  border-radius: 2px;
 }
 .panel-default > .panel-heading {
   background-color: #fff;

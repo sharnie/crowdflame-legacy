@@ -5,9 +5,6 @@
       / Head
       .connect-account
         .has-feedback.has-success
-          = link_to "#", method: :delete do
-            %i.form-control-feedback.glyphicon.glyphicon-repeat{data: {toggle: "tooltip", placement: "left", title: "Update account"}}
-
           = link_to "#collapse-#{ connection['id'] }", class: "btn btn-warning btn-hg font-light block bg-instagram", data: {toggle: "collapse", parent: "#accordion"} do
 
             %span.profile-picture.pull-left.thumb-md
@@ -28,21 +25,29 @@
             .row
               .col-sm-6
                 = f.label :category, class: "block"
-                = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
+                = f.select(:category, options_for_select( category_options, connection.category.id ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
 
               .col-sm-6
                 = f.label :tags
-                = f.text_field :tags, class: "form-control input-default bootstrap-tagsinput", placeholder: "Tags"
+                = f.text_field :tags, class: "form-control bootstrap-tagsinput default ", placeholder: "Tags"
 
           .form-group
             .row
               .col-sm-6
                 = f.label :language, class: "block"
-                = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
+                = f.select(:language, options_for_select( form_collection(:language), connection.language ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
 
               .col-sm-6
                 = f.label :age, "Audience Age"
-                = f.select(:age, options_for_select(form_collection(:age)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
+                = f.select(:age, options_for_select( form_collection(:age), connection.age ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
 
         .panel-footer
-          = f.button "Save Changes", class: "btn btn-success font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+          .row
+            .col-xs-6
+              = f.button "Save Changes", class: "btn btn-success font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+
+            .col-xs-6
+              .pull-right
+                .remove-connection{data: {toggle: "tooltip", placement: "left", title: "Remove account"}}
+                  = link_to socialconnection_path(connection), method: :delete, data: { confirm: "Are you sure? All offers associated with this connection will be removed!" } do
+                    %i.i.i-trashcan

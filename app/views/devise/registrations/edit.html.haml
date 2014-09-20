@@ -7,21 +7,29 @@
         = render 'shared/settings/nav_tabs'
 
         = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "cf-form", autocomplete: "off"}) do |f|
+          .panel.panel-default
+            .panel-body
+              .form-group
+                = f.label :email
+                = f.email_field :email, class: "form-control default", placeholder: "Email"
 
-          .form-group
-            = f.text_field :first_name, class: "form-control input-hg", placeholder: "First name"
+              .form-group
+                .row
+                  .col-xs-6
+                    = f.label :first_name
+                    = f.text_field :first_name, class: "form-control default", placeholder: "First name"
 
-          .form-group
-            = f.text_field :last_name, class: "form-control input-hg", placeholder: "Last name"
+                  .col-xs-6
+                    = f.label :last_name
+                    = f.text_field :last_name, class: "form-control default", placeholder: "Last name"
 
-          .form-group
-            = f.text_field :username, class: "form-control input-hg", placeholder: "Username"
+              .form-group
+                = f.label :username
+                = f.text_field :username, class: "form-control default", placeholder: "Username"
 
-          .form-group
-            = f.email_field :email, class: "form-control input-hg", placeholder: "Email"
+              .form-group
+                = f.label :post_code, "Postal Code"
+                = f.text_field :post_code, class: "form-control default", placeholder: "Postal code"
 
-          .form-group
-            = f.text_field :post_code, class: "form-control input-hg", placeholder: "Postal code"
-
-          .form-group
-            = f.button "Save Changes", class: "btn btn-success btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+            .panel-footer
+              = f.button "Save Changes", class: "btn btn-success font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}

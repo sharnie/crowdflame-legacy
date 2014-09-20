@@ -32,7 +32,10 @@ var CrowdFlame = {
             selectCaret = '<span class="caret"></span><span class="sr-only">Toggle Dropdown</span>';
 
             // use value from title attribute or grab first option from select
-            selectDisplayText = $(selectElement).attr('title') || $(selectElement).find('option:first').text(); 
+            selectDisplayText = $(selectElement).find('option:selected').text() ||
+                                $(selectElement).attr('title') ||
+                                $(selectElement).find('option:first').text(); 
+
             selectButton      = selectModel.find('button').html( selectDisplayText + " " + selectCaret );
             selectList        = selectModel.find('ul.dropdown-menu');
 

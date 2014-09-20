@@ -5,7 +5,7 @@
       / Head
       .connect-account
         .has-feedback.has-success
-          = link_to "#", method: :delete do
+          = link_to clear_socialconnections_path do
             %i.form-control-feedback.glyphicon.glyphicon-remove{data: {toggle: "tooltip", placement: "left", title: "Disconnect"}}
 
           = link_to "#collapse-#{ connection['id'] }", class: "btn btn-primary btn-hg font-light block", data: {toggle: "collapse", parent: "#accordion"} do
@@ -18,7 +18,7 @@
                 = "@#{ connection['username'] }"
 
               %p.status.text-left
-                = "Update before connecting"
+                = "Complete required fields"
 
       / Body
       %div{id: "collapse-#{ connection['id'] }", class: "panel-collapse collapse"}
@@ -27,21 +27,33 @@
           .form-group
             .row
               .col-sm-6
-                = f.label :category, class: "block"
-                = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+                = f.label :category do
+                  %span<
+                    Category
+                    %span.required-field *
+                = f.select(:category, options_for_select( category_options ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
 
               .col-sm-6
-                = f.label :tags
-                = f.text_field :tags, class: "form-control input-default bootstrap-tagsinput", placeholder: "Tags"
+                = f.label :tags do
+                  %span<
+                    Tags
+                    %span.required-field *
+                = f.text_field :tags, class: "form-control input-default bootstrap-tagsinput", placeholder: "red, blue"
 
           .form-group
             .row
               .col-sm-6
-                = f.label :language, class: "block"
-                = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+                = f.label :language do
+                  %span<
+                    Language
+                    %span.required-field *
+                = f.select(:language, options_for_select( form_collection(:language)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default  caret-full'})
 
               .col-sm-6
-                = f.label :age, "Audience Age"
-                = f.select(:age, options_for_select(form_collection(:age)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default full-width'})
+                = f.label :age do
+                  %span<
+                    Audience Age
+                    %span.required-field *
+                = f.select(:age, options_for_select(form_collection(:age)), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default  caret-full'})
 
-          = f.button "Save Connection", class: "btn btn-default btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}
+          = f.button "Save Connection", class: "btn btn-primary btn-hg font-bold block", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Saving..."}

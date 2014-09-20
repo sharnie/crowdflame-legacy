@@ -2,13 +2,12 @@
   .container.new-offer
 
     .row
-
-      .col-xs-12.col-md-6.col-md-offset-3
+      .col-xs-12.col-md-7
         %section.offer
           %section.row
             .col-sm-3.col-md-4.no-padding
               .offer-image
-                = image_tag "http://jamaicars.weebly.com/uploads/4/2/3/9/4239917/7800316_orig.jpg"
+                = image_tag @offer.socialconnection.profile_picture
 
             .col-sm-9.col-md-8.no-padding
               .offer-details
@@ -20,7 +19,11 @@
                 %span.offer-author
                   by
                   %a.font-bold{href: "#"}
-                    =# "@#{offer.socialconnection.username}"
+                    = "@#{@offer.socialconnection.username}"
+                  %span
+                    in
+                    %a.font-bold{href: "#"}
+                      = @offer.socialconnection.category.name
 
                 .offer-stats
                   %span{class: "offer-rating"}
@@ -35,15 +38,35 @@
                     .text-center
                       .count-box.b-r.pull-left
                         %h5.font-bold.m-t
-                          =# offer.socialconnection.followers
+                          = @offer.socialconnection.followers
                         %p.text-muted Followers
 
                       .count-box.b-r.pull-left
                         %h5.font-bold.m-t
-                          =# offer.socialconnection.following
+                          = @offer.socialconnection.following
                         %p.text-muted Following
 
                       .count-box.b-r.pull-left
                         %h5.font-bold.m-t
-                          =# offer.socialconnection.media_count
+                          = @offer.socialconnection.media_count
                         %p.text-muted Media
+
+      .col-xs-12.col-md-5
+        .panel.bg-success.m-b-lg
+          %a{:href => "#"}
+            .panel-body
+              .font-bold.text-center.font-18.font-white
+                = "$#{@offer.price} - Order Now"
+
+        .panel.bg-instagram
+          .panel-body
+            %section.profile
+              .thumb-md.pull-left.m-r-md
+                = image_tag( @offer.socialconnection.profile_picture, class: "img-circle" )
+              .clear
+                = link_to user_profile_path( @offer.socialconnection.user.username ), class: "username font-bold" do
+                  %span< 
+                    = "@#{@offer.socialconnection.username}"
+                    %i.fa.fa-instagram
+                %small.follow-metric.block
+                  = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"

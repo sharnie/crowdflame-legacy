@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   has_many :offers, through: :socialconnections
   has_one  :payment, dependent: :destroy
 
-  validates_presence_of :username
+  validates_presence_of   :username
+  validates_uniqueness_of :username
 
   def have_connections?
     self.socialconnections.size > 0 ? true : false
