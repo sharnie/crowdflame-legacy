@@ -79,6 +79,11 @@ a, a:hover, a:focus {
   overflow: hidden;
 }
 
+/* Border Helper */
+.b-b {
+  border-bottom: 1px solid #F0F3F6;
+}
+
 /* Margin Helper */
 .m-b-sm {
   margin-bottom: 5px;
@@ -106,11 +111,20 @@ a, a:hover, a:focus {
 }
 
 /* Padding Helper */ 
-.padding-md {
+.p-md {
   padding: 15px;
 }
 .p-t-md {
   padding-top: 15px;
+}
+.p-r-sm {
+  padding-right: 5px;
+}
+.p-b-sm {
+  padding-bottom: 5px;
+}
+.p-l-sm {
+  padding-left: 5px;
 }
 .p-b-md {
   padding-bottom: 15px;
@@ -122,6 +136,9 @@ a, a:hover, a:focus {
 /* Text Helper */
 .font-white {
   color: #fff;
+}
+.font-black {
+  color: #000;
 }
 .font-light {
   font-weight: 100;
@@ -523,6 +540,12 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   position: relative;
   width: 148px;
   overflow: hidden;
+  padding: 0px 0 0 15px;
+}
+@media(max-width:767px){
+  .offer .offer-image {
+    padding: 0px;
+  }
 }
 .offer .offer-image, .offer .offer-image img {
   width: 100%;
@@ -605,15 +628,55 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   }
 }
 
-// Profile Widget
-.profile {
-  max-width: 270px;
+/*
+ * Offer Widget
+ * Show Page
+ *
+ */
+.offer-widget {
+  overflow: hidden;
 }
-.profile .thumb-md img {
-  border: 2px solid #fff;
+.offer-widget .offer-gallery {
+  // border-right: 1px solid #E7EBEF;
+}
+.offer-widget .offer-gallery .featured {
+  // max-height: 350px;
+  overflow: hidden;
+}
+.offer-widget .offer-gallery .featured:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.4);
+  border-radius: 2px;
+}
+.offer-widget .offer-gallery .featured img {
+  width: 100%;
+}
+.offer-widget .offer-price {
+  font-size: 18px;
+  background-color: #7AD8A0;
+  color: #fff;
+  padding: 0 8px;
+  border-radius: 2px;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.09);
+}
+
+// Profile Widget
+.profile .thumb-md:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.4);
+  border-radius: 2px;
 }
 .profile a.username {
-  color: #fff;
   margin: 0;
   padding: 0;
 }

@@ -1,0 +1,12 @@
+.panel.bg-instagram
+  .panel-body
+    %section.profile
+      .thumb-md.pull-left.m-r-md
+        = image_tag( @offer.socialconnection.profile_picture, class: "img-circle" )
+      .clear
+        = link_to user_profile_path( @offer.socialconnection.user.username ), class: "username font-bold" do
+          %span< 
+            = "@#{@offer.socialconnection.username}"
+            %i.fa.fa-instagram
+        %small.follow-metric.block
+          = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"

@@ -1,72 +1,44 @@
 %section.content.cf-account-settings.bg-grey
-  .container.new-offer
+  .container
 
     .row
-      .col-xs-12.col-md-7
-        %section.offer
-          %section.row
-            .col-sm-3.col-md-4.no-padding
-              .offer-image
-                = image_tag @offer.socialconnection.profile_picture
+      .col-sm-12
+        .offer-widget.panel.bg-white
+          /right column
+          .col-sm-7.no-padding
+            .offer-gallery
+              .featured
+                = image_tag "http://img1.coastalliving.timeinc.net/sites/default/files/image/2010/11/getaways/half-moon-bay-jamaica-l.jpg"
 
-            .col-sm-9.col-md-8.no-padding
-              .offer-details
-                %a.offer-title.font-bold{href: "#"}
-                  %span.offer-price<
-                    = "$#{@offer.price}"
-                  = @offer.title
+          .col-sm-5.no-padding
+            .offer-details
 
-                %span.offer-author
-                  by
-                  %a.font-bold{href: "#"}
-                    = "@#{@offer.socialconnection.username}"
-                  %span
-                    in
-                    %a.font-bold{href: "#"}
-                      = @offer.socialconnection.category.name
+              %section.profile.clear.p-md.b-b
+                .row
+                  .col-xs-12.col-md-8.m-b-md
+                    .thumb-md.pull-left.m-r-md
+                      = image_tag( @offer.socialconnection.profile_picture, class: "img-rounded" )
+                    .clear
+                      = link_to user_profile_path( @offer.socialconnection.user.username ), class: "username font-bold" do
+                        = @offer.socialconnection.username
+                      %small.follow-metric.block
+                        = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"
 
-                .offer-stats
-                  %span{class: "offer-rating"}
-                    %span{class: "glyphicon glyphicon-star active"}
-                    %span{class: "glyphicon glyphicon-star active"}
-                    %span{class: "glyphicon glyphicon-star active"}
-                    %span{class: "glyphicon glyphicon-star"}
-                    %span{class: "glyphicon glyphicon-star"}
-                    %span (120)
+                  .col-xs-12.col-md-4
+                    %a.btn.btn-success.p-r-sm.p-l-sm.full-width{href: "#"}
+                      Order Now
+                    / %a.btn.btn-success.block{href: "#"}
+                    /   Order Now
 
-                  .offer-user-network
-                    .text-center
-                      .count-box.b-r.pull-left
-                        %h5.font-bold.m-t
-                          = @offer.socialconnection.followers
-                        %p.text-muted Followers
+              .description.p-md.b-b
+                / .title.font-bold
+                /   %span.offer-price.font-bold<
+                /     $
+                /     %span> 5
+                /   = @offer.title.capitalize
+                / %span.font-bold
+                /   = @offer.title
+                / %br/
 
-                      .count-box.b-r.pull-left
-                        %h5.font-bold.m-t
-                          = @offer.socialconnection.following
-                        %p.text-muted Following
-
-                      .count-box.b-r.pull-left
-                        %h5.font-bold.m-t
-                          = @offer.socialconnection.media_count
-                        %p.text-muted Media
-
-      .col-xs-12.col-md-5
-        .panel.bg-success.m-b-lg
-          %a{:href => "#"}
-            .panel-body
-              .font-bold.text-center.font-18.font-white
-                = "$#{@offer.price} - Order Now"
-
-        .panel.bg-instagram
-          .panel-body
-            %section.profile
-              .thumb-md.pull-left.m-r-md
-                = image_tag( @offer.socialconnection.profile_picture, class: "img-circle" )
-              .clear
-                = link_to user_profile_path( @offer.socialconnection.user.username ), class: "username font-bold" do
-                  %span< 
-                    = "@#{@offer.socialconnection.username}"
-                    %i.fa.fa-instagram
-                %small.follow-metric.block
-                  = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"
+                %span.font-bold.text-ellipsis
+                = @offer.description
