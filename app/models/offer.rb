@@ -17,4 +17,7 @@ class Offer < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
 
+  def to_param
+    "#{id} #{price} #{title}".parameterize
+  end
 end

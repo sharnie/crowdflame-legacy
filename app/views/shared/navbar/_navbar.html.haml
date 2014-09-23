@@ -45,35 +45,3 @@
                 %li
                   %a{href: "#"}
                     Sharnie Ivery bought your offer
-
-      / .current-account.pull-right
-      /   .dropdown.pull-left
-      /     %a{data: {toggle: "dropdown"}, href: "#"}
-      /       %span{class: "user-info pull-left hidden-xs"}
-      /         %span{class: "account-balance text-left font-bold"} $2,201.92
-          
-      /       %span{class: "profile-picture thumb-md"}
-      /         = image_tag(avatar_url(current_user), class: "img-circle")
-      /         %b{class: "caret"}
-
-      /     %ul{class: "dropdown-menu", role: "menu", :'aria-labelledby' => "dLabel"}
-      /       %li{class: "visible-xs"}
-      /         %a{href: "#"}
-      /           %span{class: "font-bold"}
-      /             Balance:
-      /           $2,201.92
-      /       %li
-      /         = link_to "Account Settings", edit_user_registration_path
-      /       %li.divider
-      /       %li
-      /         = link_to "Sign Out", destroy_user_session_path, method: :delete
-
-      /   .notifications.pull-left
-      /     .dropdown
-      /       %a{data: {toggle: "dropdown"}, href: "#"}
-      /         %span.glyphicon.glyphicon-bell
-
-      /       %ul{class: "dropdown-menu", role: "menu"}
-      /         %li
-      /           %a{href: "#"}
-      /             Sharnie Ivery bought your offer

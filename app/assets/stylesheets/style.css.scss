@@ -111,6 +111,9 @@ a, a:hover, a:focus {
 }
 
 /* Padding Helper */ 
+.p-sm {
+  padding: 5px;
+}
 .p-md {
   padding: 15px;
 }
@@ -140,6 +143,12 @@ a, a:hover, a:focus {
 .font-black {
   color: #000;
 }
+.font-success {
+  color: #7AD8A0;
+}
+.font-danger {
+  color: $primary-color;
+}
 .font-light {
   font-weight: 100;
 }
@@ -163,6 +172,9 @@ a, a:hover, a:focus {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
+}
+.thumb-sm img {
+  width: 28px;
 }
 .thumb-md img {
   width: 44px;
@@ -196,6 +208,13 @@ a, a:hover, a:focus {
 }
 .btn-block {
   width: 100%;
+}
+
+.btn-sm, .btn-group-sm>.btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
 }
 
 /* Form Validations Message */
@@ -597,6 +616,9 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 .offer .offer-details .offer-stats .offer-rating .active {
   color: #FFB849;
 }
+.i-star2.active, .fa-star.active {
+  color: #FFB849;
+}
 .offer .offer-details .offer-user-network {
   margin-top: 0px;
 }
@@ -636,12 +658,9 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 .offer-widget {
   overflow: hidden;
 }
-.offer-widget .offer-gallery {
-  // border-right: 1px solid #E7EBEF;
-}
 .offer-widget .offer-gallery .featured {
-  // max-height: 350px;
   overflow: hidden;
+  position: relative
 }
 .offer-widget .offer-gallery .featured:after {
   content: "";
@@ -653,8 +672,23 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   box-shadow: inset 0 0 2px rgba(255,255,255,0.4);
   border-radius: 2px;
 }
-.offer-widget .offer-gallery .featured img {
+.offer-widget .offer-gallery .featured > img {
   width: 100%;
+}
+.offer-widget .offer-gallery .featured .social-user {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+        background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.8));
+        background-image: linear-gradient(transparent, rgba(0,0,0,0.8));
+}
+.offer-widget .offer-gallery .featured .social-user .username {
+  color: #fff;
+}
+.offer-widget .offer-gallery .featured .social-user .follow-metric {
+  line-height: 1;
+  color: #fff;
 }
 .offer-widget .offer-price {
   font-size: 18px;
@@ -664,6 +698,14 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   border-radius: 2px;
   text-shadow: 0px 1px 1px rgba(0,0,0,0.09);
 }
+.offer-widget .offer-details .title {
+  font-size: 22px;
+  font-weight: 400;
+}
+.offer-widget .offer-details .order {
+  overflow: hidden;
+}
+
 
 // Profile Widget
 .profile .thumb-md:after {

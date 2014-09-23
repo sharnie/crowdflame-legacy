@@ -25,9 +25,9 @@ Rails.application.routes.draw do
         end
       end
     end
-
-    resources :offers
   end
+
+  resources :offers
 
   # user profile
   get '/:id' => 'profiles#show', as: :user_profile

@@ -5,40 +5,73 @@
       .col-sm-12
         .offer-widget.panel.bg-white
           /right column
-          .col-sm-7.no-padding
+          .col-md-7.no-padding
             .offer-gallery
               .featured
                 = image_tag "http://img1.coastalliving.timeinc.net/sites/default/files/image/2010/11/getaways/half-moon-bay-jamaica-l.jpg"
 
-          .col-sm-5.no-padding
+                = link_to user_profile_path( @offer.socialconnection.user.username ), class: "social-user pull-left m-r-md" do
+                  .thumb-md.pull-left.m-r-md
+                    = image_tag( @offer.socialconnection.profile_picture, class: "img-circle" )
+                  .clear
+                    .username.font-bold
+                      = @offer.socialconnection.username
+                    %small.follow-metric.block
+                      = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"
+
+
+          .col-md-5.no-padding
             .offer-details
 
-              %section.profile.clear.p-md.b-b
-                .row
-                  .col-xs-12.col-md-8.m-b-md
-                    .thumb-md.pull-left.m-r-md
-                      = image_tag( @offer.socialconnection.profile_picture, class: "img-rounded" )
-                    .clear
-                      = link_to user_profile_path( @offer.socialconnection.user.username ), class: "username font-bold" do
-                        = @offer.socialconnection.username
-                      %small.follow-metric.block
-                        = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"
-
-                  .col-xs-12.col-md-4
-                    %a.btn.btn-success.p-r-sm.p-l-sm.full-width{href: "#"}
-                      Order Now
-                    / %a.btn.btn-success.block{href: "#"}
-                    /   Order Now
-
               .description.p-md.b-b
-                / .title.font-bold
-                /   %span.offer-price.font-bold<
-                /     $
-                /     %span> 5
-                /   = @offer.title.capitalize
-                / %span.font-bold
-                /   = @offer.title
-                / %br/
+                %span.offer-price.font-bold.pull-left.m-r-sm<
+                  $
+                  %span> 5
+                %h1.title.font-bold
+                  = @offer.title
 
-                %span.font-bold.text-ellipsis
-                = @offer.description
+                %small
+                  - 5.times do
+                    %i.fa.fa-star.active
+                  (17)
+                  %br/
+                  %i.i.i-location
+                  Brooklyn, NY, United States
+
+              .order.p-md.b-b
+                .pull-right
+                  .btn.btn-info.btn-sm
+                    .i.i.i-checkmark2
+                    Verified
+                  .btn.btn-info.btn-sm
+                    .i.i.i-statistics
+                    Pro
+
+                %small
+                  Deliver in
+                %small.font-bold
+                  = "#{@offer.delivery} Day"
+
+              .p-md.b-b
+                %small
+                  %span.font-bold
+                  = @offer.description
+
+              .p-md.b-b
+                .row
+                  .col-xs-6.text-center
+                    %span.font-bold 24
+                    %small
+                      %i.i.i-like.font-success.font-bold
+                      %br/
+                      Positive Reviews
+                  .col-xs-6.text-center
+                    %span.font-bold 5
+                    %small
+                      %i.i.i-dislike.font-danger.font-bold
+                      %br/
+                      Negative Reviews
+
+              .p-md
+                .btn.btn-success.btn-hg.block
+                  Order Now
