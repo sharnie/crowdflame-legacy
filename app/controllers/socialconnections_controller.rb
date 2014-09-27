@@ -39,7 +39,7 @@ class SocialconnectionsController < ApplicationController
   end
 
   def clear_connection
-    session[:connection].clear
+    session[:connection].clear if session[:connection]
     redirect_to socialconnections_path
   end
 
@@ -48,7 +48,7 @@ class SocialconnectionsController < ApplicationController
   end
 
   def callback
-    session[:connection].clear
+    session[:connection].clear if session[:connection]
     connection = SocialConnectionUrl.callback("instagram", params[:code])
 
     if Socialconnection.find_by(uid: connection.id)
