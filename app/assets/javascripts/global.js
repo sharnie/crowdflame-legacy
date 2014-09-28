@@ -79,21 +79,6 @@ var CrowdFlame = {
                 loop = 0;
             }
         }, 1500); // do this every 1.5 seconds
-    },
-    backgroundSlide: function() {
-        bgArr = ["https://unsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=08865d195c3812414d91b71869988743",
-            "https://unsplash.imgix.net/36/xIsiRLngSRWN02yA2BbK_submission-photo-7.jpg?q=75&fm=jpg&auto=format&s=d172e9da49f26a86b15e1d21bb4faa56",
-            "https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg"];
-
-        loop = 10;
-        setInterval(function() {
-                $( '.full-page#landing' ).css({ 'background-image' : 'url('+ bgArr[loop] +')' });
-                loop++;
-            if( loop >= bgArr.length ) {
-                loop = 0;
-            }
-            console.log( loop );
-        }, 4000);
     }
 }
 

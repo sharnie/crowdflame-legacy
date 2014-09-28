@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :validate_socialconnections, only: [:new]
+  # before_action :validate_socialconnections, only: [:new]
   before_action :find_socialconnection, only: [:create]
   before_action :find_offer, only: [:show]
   before_action :authenticate_user!, except: [:show]

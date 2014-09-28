@@ -1,24 +1,3 @@
-/ .full-page#landing
-/   .container.cf-intro
-/     %section.col-sm-6.col-sm-offset-3
-/       %section.callout
-/         %h1.logo
-/           %span.font-light CrowdFlame
-
-/         %p.desc It's how people sell shoutouts
-
-/         .sign-in-button
-/           = link_to("Sign in with Instagram", connect_instagram_path(:provider => "instagram"), class: "btn btn-primary btn-hg btn-round")
-/           %small.font-white
-/             Already have an account?
-/             = link_to("Sign In", new_user_session_path, class: "font-white font-bold")
-
-/     %section.col-sm-6{style: "position:relative"}
-/       .iphone
-/         = image_tag("iphone.png")
-
-
-
 / Full Page Image Background Carousel Header
 %header#myCarousel.carousel.slide
   / Landing
@@ -41,10 +20,10 @@
   / Wrapper for Slides
   .carousel-inner
     .item
-      .fill{:style => "background-image:url('https://unsplash.imgix.net/36/xIsiRLngSRWN02yA2BbK_submission-photo-7.jpg?q=75&fm=jpg&auto=format&s=d172e9da49f26a86b15e1d21bb4faa56');"}
+      .fill{:style => "background-image:url( #{image_url("girl.jpg")} );"}
 
     .item.active
-      .fill{:style => "background-image:url('https://unsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=08865d195c3812414d91b71869988743');"}
+      .fill{:style => "background-image:url( #{image_url("hudson.jpg")} );"}
 
     .item
-      .fill{:style => "background-image:url('https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg');"}
+      .fill{:style => "background-image:url( #{image_url("skyline.jpg")} );"}
