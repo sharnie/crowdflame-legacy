@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     :edit      => 'settings/account'
   }
 
+  resource :instagram do
+    get :connect
+    get :callback
+  end
+
   authenticated do
     root "offers#index", :as => :authenticated_root
 
@@ -29,7 +34,6 @@ Rails.application.routes.draw do
 
   resources :offers
 
-  # user profile
   get '/:id' => 'profiles#show', as: :user_profile
 
   root "landing#index"

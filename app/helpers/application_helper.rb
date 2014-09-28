@@ -10,12 +10,7 @@ module ApplicationHelper
 
   def avatar_url user, size=40
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-
-    if current_user.have_connections?
-      current_user.socialconnections.last.profile_picture
-    else
-      "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}d=mm"
-    end
+    current_user.profile_picture || "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}d=mm"
   end
 
   def list_link resource_name, resource

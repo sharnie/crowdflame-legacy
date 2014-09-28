@@ -53,6 +53,44 @@ a, a:hover, a:focus {
   }
 }
 
+
+
+/*
+######## ##     ## ##       ##          ########     ###     ######   ######## 
+##       ##     ## ##       ##          ##     ##   ## ##   ##    ##  ##       
+##       ##     ## ##       ##          ##     ##  ##   ##  ##        ##       
+######   ##     ## ##       ##          ########  ##     ## ##   #### ######   
+##       ##     ## ##       ##          ##        ######### ##    ##  ##       
+##       ##     ## ##       ##          ##        ##     ## ##    ##  ##       
+##        #######  ######## ########    ##        ##     ##  ######   ######## 
+FULL PAGE
+*/
+.carousel,
+.item,
+.active {
+  height: 100%;
+}
+.carousel-inner {
+  height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+footer {
+  // margin: 50px 0;
+}
+
+
+
 /* Box Helper */
 .block {
   display: block;
@@ -347,6 +385,15 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 }
 
 /*
+##     ##  #######  ##     ## ######## ########     ###     ######   ######## 
+##     ## ##     ## ###   ### ##       ##     ##   ## ##   ##    ##  ##       
+##     ## ##     ## #### #### ##       ##     ##  ##   ##  ##        ##       
+######### ##     ## ## ### ## ######   ########  ##     ## ##   #### ######   
+##     ## ##     ## ##     ## ##       ##        ######### ##    ##  ##       
+##     ## ##     ## ##     ## ##       ##        ##     ## ##    ##  ##       
+##     ##  #######  ##     ## ######## ##        ##     ##  ######   ######## 
+*/
+/*
  * Landing Page
  *
  */
@@ -354,7 +401,11 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   max-width: 660px;
 }
 .cf-intro {
-  margin-top: 60px;
+  position: absolute;
+  bottom: 20%;
+  top: 20%;
+  left: 0%;
+  right: 0%;
 }
 .cf-intro .callout {
   margin-top: 200px;
@@ -363,20 +414,38 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 .cf-intro .callout .logo {
   color: #fff;
   font-weight: 700;
-  font-size: 46px;
+  font-size: 52px;
   text-align: center;
   padding: 0px;
   margin: 0px;
 }
+@media(max-width:767px){
+  .cf-intro .callout h1.logo {
+    font-size: 42px;
+    text-align: center;
+  }
+}
 .cf-intro .callout .desc {
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
+}
+@media(max-width:767px){
+  .cf-intro .callout .desc {
+    font-size: 18px;
+  }  
 }
 .cf-intro .callout .sign-in-button {
   margin: 25px 0px;
 }
 .cf-intro .callout .sign-in-button .btn {
   width: 100%;
+  background-color: transparent;
+  border: 2px solid #fff;
+}
+.cf-intro .callout .sign-in-button .btn:hover {
+  background-color: #fff;
+  color: #333;
+  border-color: transparent;
 }
 .cf-intro .callout .sign-in-button p {
   font-size: 14px;
@@ -523,6 +592,15 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 
 
 /*
+ #######  ######## ######## ######## ########     ######## ######## ######## ########  
+##     ## ##       ##       ##       ##     ##    ##       ##       ##       ##     ## 
+##     ## ##       ##       ##       ##     ##    ##       ##       ##       ##     ## 
+##     ## ######   ######   ######   ########     ######   ######   ######   ##     ## 
+##     ## ##       ##       ##       ##   ##      ##       ##       ##       ##     ## 
+##     ## ##       ##       ##       ##    ##     ##       ##       ##       ##     ## 
+ #######  ##       ##       ######## ##     ##    ##       ######## ######## ########   
+*/
+/*
  * Offer Feed
  *
  */
@@ -650,6 +728,15 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   }
 }
 
+/*
+ ######  ##     ##  #######  ##      ## 
+##    ## ##     ## ##     ## ##  ##  ## 
+##       ##     ## ##     ## ##  ##  ## 
+ ######  ######### ##     ## ##  ##  ## 
+      ## ##     ## ##     ## ##  ##  ## 
+##    ## ##     ## ##     ## ##  ##  ## 
+ ######  ##     ##  #######   ###  ###  
+ */
 /*
  * Offer Widget
  * Show Page
@@ -824,7 +911,7 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   left: 0;
   right: 0;
   content: '';
-  background-color: #333;
+  background-color: #380C25;
   opacity: 0.69;
 }
 .full-page {
@@ -832,14 +919,34 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   height: 100%;
   margin: 0px;
   background-size: cover;
-  overflow-y: scroll;
+  // overflow-y: scroll;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
 }
 .full-page#landing {
-  background-image: url("https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg");
+  // background-image: image-url('skyline.jpg');
+  // background-image: image-url('https://unsplash.imgix.net/40/lUUnN7VGSoWZ3noefeH7_Baker%20Beach-12.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=08865d195c3812414d91b71869988743');
+  // background-image: url("https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg");
+  // background-image: url("https://unsplash.imgix.net/36/xIsiRLngSRWN02yA2BbK_submission-photo-7.jpg?q=75&fm=jpg&auto=format&s=d172e9da49f26a86b15e1d21bb4faa56");
+  transition: 1s;
 }
 .full-page#sign-up {
-  background-image: url('https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg');
+  // background-image: url('https://s3.amazonaws.com/ooomf-com-files/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg');
 }
+#myCarousel .carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+  z-index: 100;
+}
+
 
 /* Footer */
 ul.footer-menu {

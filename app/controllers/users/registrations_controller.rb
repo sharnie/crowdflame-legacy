@@ -1,5 +1,29 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
+  def create
+    super
+
+    if resource.save
+      if !session[:connection].blank?
+        resource.tap do |user|
+          user.provider        = session[:connection]['provider']
+          user.uid             = session[:connection]['id']
+          user.followers       = session[:connection]['counts']['followed_by']
+          user.following       = session[:connection]['counts']['follows']
+          user.media_count     = session[:connection]['counts']['media']
+          user.profile_picture = session[:connection]['profile_picture']
+          user.access_token    = session[:connection]['access_token']
+          user.username        = session[:connection]['username']
+          user.bio             = session[:connection]['bio']
+        end
+        resource.save
+      else
+        resource.destroy!
+        return
+      end
+    end
+  end
+
   def update
     @user = User.find(current_user.id)
 

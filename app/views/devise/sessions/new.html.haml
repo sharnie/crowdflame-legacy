@@ -12,16 +12,23 @@
 
           .form-group
             = f.text_field :email, class: "form-control input-hg", placeholder: "Email"
-
           .form-group
             = f.password_field :password, class: "form-control input-hg", placeholder: "Password"
-
           .form-group
             = f.button "Log In", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Signing in..."}
 
-          %small.text-muted
-            %p
-              = link_to "Forgot password?", new_user_password_path
-          %small.text-muted
-            Don't have an account?
-            = link_to "Sign Up", new_user_registration_path
+
+        .text-center.m-b-md.font-bold
+          or
+          
+        .form-group
+          = link_to(connect_instagram_path(:provider => "instagram"), class: "btn btn-primary btn-hg bg-instagram") do
+            %i.fa.fa-instagram
+            Sign up with Instagram
+
+        %small.text-muted
+          %p
+            = link_to "Forgot password?", new_user_password_path
+        %small.text-muted
+          Don't have an account?
+          = link_to "Sign Up", new_user_registration_path
