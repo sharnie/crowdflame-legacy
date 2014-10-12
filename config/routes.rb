@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
 
   authenticated do
-    root "offers#index", :as => :authenticated_root
+    root "dashboard#index", :as => :authenticated_root
+
+    resources :dashboard, only: [:index]
 
     resources :settings do
       collection do

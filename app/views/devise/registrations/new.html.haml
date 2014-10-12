@@ -22,10 +22,10 @@
           = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "cf-form", autocomplete: "off"}) do |f|
 
             .form-group
-              = f.text_field :email, class: "form-control input-hg", placeholder: "Email"
+              = f.text_field :email, class: "form-control input-hg", placeholder: "Enter your email"
 
             .form-group
-              = f.password_field :password, class: "form-control input-hg", placeholder: "Password"
+              = f.password_field :password, class: "form-control input-hg", placeholder: "Enter your password"
 
             .form-group
               = f.button "Sign Up", class: "btn btn-primary btn-hg font-bold", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Creating..."}

@@ -16,9 +16,6 @@
           .col-sm-6
             = f.label :delivery, "Days to Deliver", class: "block"
             = f.select(:delivery, options_for_select( delivery_days ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
-          .col-sm-6
-            = f.label :socialconnection, "Account Offer", class: "block"
-            = f.select(:socialconnection, options_for_select( socialconnection_options ), { include_blank: false }, class: "form-control cf-select", data: { 'button-class' => 'btn btn-default caret-full' })
 
       .form-group.m-b-sm
         = f.label :description

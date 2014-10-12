@@ -1,6 +1,6 @@
 $primary-color: #E55E64;
 
- /* Small Devices */
+/* Small Devices */
 @media(max-width:767px){}
 /* Tablet Devices and Up */
 @media(min-width:768px){}
@@ -53,6 +53,20 @@ a, a:hover, a:focus {
   }
 }
 
+.mobile .container {
+  padding: 0px;
+}
+@media(max-width:767px){
+  .mobile .container {
+    padding: 0px;
+  }
+  .mobile .container .row {
+    margin: 0px;
+  }
+  .mobile .container .row>[class*="col-sm"] {
+    padding: 0px;
+  }
+}
 
 
 /*
@@ -92,6 +106,9 @@ footer {
 
 
 /* Box Helper */
+.pointer {
+  cursor: pointer;
+}
 .block {
   display: block;
   width: 100%;
@@ -106,8 +123,22 @@ footer {
 .no-padding {
   padding: 0px !important;
 }
+@media(max-width:767px) {
+  .no-padding-xs {
+    padding: 0px !important;
+  }
+}
 .no-margin {
   margin: 0px !important;
+}
+// radius
+.no-radius {
+  border-radius: 0px !important;
+}
+@media(max-width:767px) {
+  .no-radius-xs {
+    border-radius: 0px !important;
+  }
 }
 .hide {
   display: none !important;
@@ -147,6 +178,9 @@ footer {
 .m-r-lg {
   margin-right: 30px;
 }
+.m-l-sm {
+  margin-left: 5px;
+}
 
 /* Padding Helper */ 
 .p-sm {
@@ -180,6 +214,9 @@ footer {
 }
 .font-black {
   color: #000;
+}
+.font-primary {
+  color: $primary-color;
 }
 .font-success {
   color: #7AD8A0;
@@ -315,6 +352,10 @@ footer {
  *
  */
 
+.navbar {
+  padding: 10px 0px;
+  max-height: 50px;
+}
 /* Small Devices */
 @media(max-width:767px){
   .navbar {
@@ -324,7 +365,13 @@ footer {
 }
 .navbar .navbar-brand {
   color: $primary-color;
-  padding-left: 0px;
+  padding: 4px;
+  height: inherit;
+}
+.navbar .navbar-brand > a {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 100;
 }
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
   margin-left: 0;
@@ -337,52 +384,49 @@ footer {
   margin: 0;
 }
 .navbar .current-account > li {
-  padding: 11px 0;
+  padding: 0;
 }
 .navbar .current-account .profile-picture {
   margin-left: 5px;
 }
 .navbar .current-account .profile-picture img {
-  width: 28px;
+  width: 30px;
   border: 3px solid $primary-color;
 }
 .navbar .user-info {
   line-height: 1;
 }
 .navbar .user-info .account-balance {
-  font-size: 16px;
-  margin-top: 6px;
+  font-size: 14px;
+  line-height: 2.31;
   display: inline-table;
   vertical-align: middle;
 } 
 /* Shortcut Link */
+ul.shortcut {
+  overflow: hidden;
+  margin: 0;
+}
 ul.shortcut li {
   float: left;
 }
-ul.shortcut li a {
-  display: inline-table;
-  padding: 13px 15px;
-  padding-right: 0px;
-  vertical-align: middle;
-  transition: all 0.2s ease-in-out;
-  font-size: 24px;
+ul.shortcut li .btn-sm {
+  font-size: 13px;
 }
-ul.shortcut li a:hover, ul.shortcut li.active a {
-  color: $primary-color;
-}
-
-/* Notification */
-.navbar .notifications .glyphicon {
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
-  margin-left: 15px;
-  color: #596475;
-  font-size: 26px;
-  padding: 0px 12px;
-  margin-top: 1px;
-  overflow: hidden;
-  display: inline-table;
-  vertical-align: middle;
-}
+// ul.shortcut li a {
+//   display: inline-table;
+//   padding: 13px 15px;
+//   padding-right: 0px;
+//   vertical-align: middle;
+//   transition: all 0.2s ease-in-out;
+//   font-size: 24px;
+// }
+// ul.shortcut li a:hover, ul.shortcut li.active a {
+//   color: $primary-color;
+// }
+// ul.shortcut li button {
+//   display: inline-table;
+// }
 
 /*
 ##     ##  #######  ##     ## ######## ########     ###     ######   ######## 
@@ -408,7 +452,7 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   right: 0%;
 }
 .cf-intro .callout {
-  margin-top: 200px;
+  margin-top: 90px;
   text-align: center;
 }
 .cf-intro .callout .logo {
@@ -444,7 +488,7 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
 }
 .cf-intro .callout .sign-in-button .btn:hover {
   background-color: #fff;
-  color: #333;
+  color: #C1555A;
   border-color: transparent;
 }
 .cf-intro .callout .sign-in-button p {
@@ -940,6 +984,55 @@ ul.shortcut li a:hover, ul.shortcut li.active a {
   z-index: 100;
 }
 
+/* Table */
+.table-playful {
+
+}
+.table-playful > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+  padding: 8px 15px;
+}
+.table-playful > tbody > tr {
+  position: relative;
+}
+.table-playful > thead > tr > th,
+.table-playful > thead > tr > td,
+.table-playful > tbody > tr > th,
+.table-playful > tbody > tr > td,
+.table-playful > tfoot > tr > th,
+.table-playful > tfoot > tr > td {
+  font-size: 14px;
+  border-top: 0;
+}
+.table-playful > thead > tr > th {
+  color: #fff;
+  border-bottom: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* Sort View */
+.sort-view .btn {
+  padding: 0;
+}
+.sort-view .btn i {
+  padding: 6px 10px 4px;
+}
+.sort-view .btn:first-child {
+  border-radius: 2px 0 0 2px !important;
+}
+.sort-view .btn:last-child {
+  border-left-width: 1px;
+  border-radius: 0 2px 2px 0 !important;
+}
+.sort-view .btn:hover {
+  background-color: rgba(0,0,0,0.04);
+  border-color: #E7EBEF;
+}
 
 /* Footer */
 ul.footer-menu {
@@ -958,4 +1051,11 @@ ul.footer-menu {
   padding: 8px;
   font-size: 14px;
   text-decoration: none;
+}
+
+.affix {
+  top: 10px;
+}
+.affix-top {
+  position: absolute;
 }

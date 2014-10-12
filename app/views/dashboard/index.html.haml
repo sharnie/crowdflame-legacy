@@ -1,0 +1,70 @@
+%section.content.mobile.bg-grey
+  .container
+    / panel
+    .row
+      .col-sm-4
+        .btn.btn-success.btn-hg.block.no-radius-xs
+          %h1.font-white{title: "New orders", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+            25
+          %span
+            New
+      .col-sm-4
+        .btn.btn-primary.btn-hg.block.no-radius-xs
+          %h1.font-white{title: "Pending orders", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+            3
+          %span
+            Pending
+      .col-sm-4
+        .btn.btn-info.btn-hg.block.no-radius-xs
+          %h1.font-white{title: "Completed orders", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+            12
+          %span
+            Completed
+
+      .col-sm-12
+        .panel.m-t-lg.no-radius-xs
+          .panel-heading.no-radius-xs
+            .panel-title.font-bold
+              %i.fa.fa-gears
+              Managment
+              .pull-right
+                .btn-group.sort-view
+                  .btn.btn-sm.btn-default
+                    %i.fa.fa-th-large{title: "Thumbnail View", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+                  .btn.btn-sm.btn-default
+                    %i.fa.fa-th-list{title: "List View", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+
+          %table.table.table-playful
+            %thead.bg-warning
+              %tr
+                %th Price
+                %th Description
+                %th Delivery
+                %th Sales
+                %th 
+            %tbody
+              %tr
+                %td $10
+                %td I will give you a shoutout to my 120,000 Instagram followers. This will last 24 hours.
+                %td 1 Day
+                %td 121
+                %td.pointer
+                  %i.fa.fa-cog
+        
+        / Thumbnail view static
+        .panel.m-t-lg.no-radius-xs#food
+          .panel-heading.no-radius-xs
+            .panel-title.font-bold
+              %i.fa.fa-gears
+              Managment
+              .pull-right
+                .btn-group.sort-view
+                  .btn.btn-sm.btn-default
+                    %i.fa.fa-th-large{title: "Thumbnail View", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+                  .btn.btn-sm.btn-default
+                    %i.fa.fa-th-list{title: "List View", data: { placement: "top", title: "Disconnect", toggle: "tooltip"}}
+
+        .thumbnail-view.row.m-t-md
+          - 15.times do
+            = render "offers/offer_static"
+

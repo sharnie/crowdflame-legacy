@@ -1,47 +1,47 @@
 - if user_signed_in?
-
   %header{class: "header navbar navbar-default bg-white navbar-fixed-top", role: "navigation"}
     .container-fluid
 
       .navbar-brand.font-bold
-        = link_to "CF", root_path
-
-      .pull-left
-        %ul.shortcut
-          %li.active
-            = link_to(new_offer_path) do
-              %i.i.i-add-to-list
+        = link_to root_path do
+          %span<
+            Crowd
+            %span.font-bold.font-primary> F
 
       %ul.current-account.pull-right
         %li.pull-left
           .dropdown.pull-left
             %a{data: {toggle: "dropdown"}, href: "#"}
               %span{class: "user-info pull-left hidden-xs"}
-                %span{class: "account-balance text-left font-bold"} $2,201.92
+                / %span{class: "account-balance text-left font-bold"} $2,201.92
 
               %span{class: "profile-picture thumb-md"}
                 = image_tag(avatar_url(current_user), class: "img-circle")
                 %b{class: "caret"}
 
             %ul{class: "dropdown-menu", role: "menu", :'aria-labelledby' => "dLabel"}
-              %li{class: "visible-xs"}
+              %li{class: "visible-xsALL"}
                 %a{href: "#"}
                   %span{class: "font-bold"}
                     Balance:
                   $2,201.92
               %li
-                = link_to "Account Settings", edit_user_registration_path
+                = link_to "Dashboard", dashboard_index_path
+              %li
+                = link_to "Profile", user_profile_path(current_user.username)
+              %li
+                = link_to "Settings", edit_user_registration_path
               %li.divider
               %li
                 = link_to "Sign Out", destroy_user_session_path, method: :delete
 
-        %li.pull-left
-          .notifications
-            .dropdown
-              %a{data: {toggle: "dropdown"}, href: "#"}
-                %span.glyphicon.glyphicon-bell
-
-              %ul{class: "dropdown-menu", role: "menu"}
-                %li
-                  %a{href: "#"}
-                    Sharnie Ivery bought your offer
+      .pull-right.m-r-sm
+        %ul.shortcut
+          %li.m-r-sm
+            = link_to(new_offer_path, class: "btn btn-warning btn-addon btn-sm m-l-sm") do
+              %i.fa.fa-instagram
+              Buy Shout
+          %li
+            = link_to(new_offer_path, class: "btn btn-success btn-addon btn-sm m-l-sm") do
+              %i.fa.fa-dollar
+              Sell Shout
