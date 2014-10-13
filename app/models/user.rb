@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :offers
   has_many :socialconnections, dependent: :destroy
-  has_many :offers, through: :socialconnections
   has_one  :payment, dependent: :destroy
 
   def have_connections?

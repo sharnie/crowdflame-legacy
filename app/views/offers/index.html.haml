@@ -4,53 +4,23 @@
 
     .row
       - @offers.each do |offer|
-        .col-xs-12.col-md-6.col-md-offset-3
+        .col-xs-12.col-sm-4.col-md-3
           %section.offer
             %section.row
-              .col-sm-3.col-md-4.no-padding
+              .col-sm-12.no-padding-xs
                 .offer-image
                   = link_to offer_path(offer) do
-                    = image_tag( offer.socialconnection.profile_picture )
+                    = image_tag( offer.user.profile_picture )
+                  .user-info
+                    = link_to user_profile_path( offer.user.username ), class: "social-user pull-left m-r-md" do
+                      .clear.font-white
+                        .username.font-bold
+                          = "@#{offer.user.username}"
+                        %small.follow-metric.block
+                          = "#{offer.user.followers} Followers / #{offer.user.media_count} Media"
 
-              .col-sm-9.col-md-8.no-padding
+              .col-sm-12.no-padding-xs
                 .offer-details
-                  = link_to(offer_path(offer), class: "offer-title font-bold") do
-                    %span.offer-price<
-                      = "$#{offer.price}"
-                    = offer.title
-
-                  %span.offer-author
-                    by
-                    %a.font-bold{href: "#"}
-                      = "@#{offer.socialconnection.username}"
-
-                    %span
-                      in
-                      %a.font-bold{href: "#"}
-                        = offer.socialconnection.category.name
-
-                  .offer-stats
-                    %span{class: "offer-rating"}
-                      %span{class: "glyphicon glyphicon-star active"}
-                      %span{class: "glyphicon glyphicon-star active"}
-                      %span{class: "glyphicon glyphicon-star active"}
-                      %span{class: "glyphicon glyphicon-star"}
-                      %span{class: "glyphicon glyphicon-star"}
-                      %span (120)
-
-                    .offer-user-network
-                      .text-center
-                        .count-box.b-r.pull-left
-                          %h5.font-bold.m-t
-                            = offer.socialconnection.followers
-                          %p.text-muted Followers
-
-                        .count-box.b-r.pull-left
-                          %h5.font-bold.m-t
-                            = offer.socialconnection.following
-                          %p.text-muted Following
-
-                        .count-box.b-r.pull-left
-                          %h5.font-bold.m-t
-                            = offer.socialconnection.media_count
-                          %p.text-muted Media
+                  = link_to(new_offer_path, class: "btn btn-warning btn-addon btn-sm full-width ") do
+                    %i.fa.fa-instagram
+                    $5 - Order Now

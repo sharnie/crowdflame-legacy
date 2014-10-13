@@ -649,7 +649,7 @@ ul.shortcut li .btn-sm {
  *
  */
 .offer {
-  background-color: #fff;
+  background-color: #7266BA;
   border-radius: 2px;
   overflow: hidden;
   position: relative;
@@ -657,7 +657,7 @@ ul.shortcut li .btn-sm {
 }
 @media(min-width:767px){
   .offer {
-    max-height: 157px;
+    // max-height: 157px;
   }
 }
 .cf-offer-feed .container {
@@ -677,11 +677,31 @@ ul.shortcut li .btn-sm {
     padding: 0px;
   }
 }
+.offer .offer-image:before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  box-shadow: inset 0 0 2px rgba(255,255,255,0.4);
+  border-radius: 2px;
+}
 .offer .offer-image {
   position: relative;
-  width: 148px;
+  // width: 148px;
+  // max-height: 150px;
   overflow: hidden;
-  padding: 0px 0 0 15px;
+  // padding: 0px 0 0 15px;
+}
+.offer .offer-image .user-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px;
+  line-height: 1.3;
+  background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.8));
+  background-image: linear-gradient(transparent, rgba(0,0,0,0.8));
 }
 @media(max-width:767px){
   .offer .offer-image {
@@ -693,7 +713,10 @@ ul.shortcut li .btn-sm {
 }
 .offer .offer-details {
   position: relative;
-  padding: 10px 25px 10px 15px;
+  padding: 10px;
+}
+.offer .offer-details a.btn {
+  background-color: #665BA7;
 }
 .offer .offer-details .offer-title {
   font-size: 18px;
@@ -714,16 +737,14 @@ ul.shortcut li .btn-sm {
   margin-top: 0px;
   padding: 0px 0;
 }
-/* Small Devices */
 @media(min-width:768px){
   .offer .offer-details {
-    position: absolute;
+    // position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     overflow: hidden;
-    height: 157px;
   }
   .offer .offer-details .offer-stats {
     overflow: hidden;
@@ -762,7 +783,7 @@ ul.shortcut li .btn-sm {
 /* Small Devices */
 @media(max-width:767px){
   .offer .offer-image {
-    max-height: 200px;
+    // max-height: 200px;
   }
   .offer .offer-details {
     padding: 15px;
@@ -811,8 +832,8 @@ ul.shortcut li .btn-sm {
   bottom: 0;
   width: 100%;
   padding: 15px;
-        background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.8));
-        background-image: linear-gradient(transparent, rgba(0,0,0,0.8));
+  background-image: -webkit-linear-gradient(transparent, rgba(0,0,0,0.8));
+  background-image: linear-gradient(transparent, rgba(0,0,0,0.8));
 }
 .offer-widget .offer-gallery .featured .social-user .username {
   color: #fff;

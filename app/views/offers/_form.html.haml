@@ -1,28 +1,26 @@
 .panel.panel-default
   .panel-heading
     .panel-title
-      Create an Offer
+      Sell a Shout
 
   = form_for(@offer, html: {class: "offer-form", autocomplete: "off"}) do |f|
     .panel-body
-      .field-group.m-b-md
-        = f.label :title, "Offer Title"
-        #price-title
-          = f.select(:price, options_for_select( offer_price ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default select-price'})
-        = f.text_field :title, class: "form-control", size: "30x1", placeholder: "for a shoutout", maxlength: 70
-
       .form-group
         .row
           .col-sm-6
-            = f.label :delivery, "Days to Deliver", class: "block"
+            = f.label :delivery, "How long will it take?", class: "block"
             = f.select(:delivery, options_for_select( delivery_days ), {include_blank: false}, class: "form-control cf-select", data: {'button-class' => 'btn btn-default caret-full'})
 
+          .col-sm-6
+            = f.label :price, "What's your price?", class: "block"
+            = f.number_field :price, class: "form-control default", placeholder: "Try $5"
+
       .form-group.m-b-sm
-        = f.label :description
+        = f.label :description, "Explain your shoutout"
         = f.text_area :description, class: "form-control", size: "30x2", placeholder: "Describe what you're offering. Keep it short and sweet!"
 
       .form-group.m-b-sm
-        = f.label :instructions, "Write instructions for buyer"
+        = f.label :instructions, "Instructions for the buyer"
         = f.text_area :instructions, class: "form-control", size: "30x2", placeholder: "Example: Provide username, image/video and caption for shoutout"
 
     .panel-footer

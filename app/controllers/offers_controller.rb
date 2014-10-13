@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   # before_action :validate_socialconnections, only: [:new]
-  before_action :find_socialconnection, only: [:create]
+  # before_action :find_socialconnection, only: [:create]
   before_action :find_offer, only: [:show]
   before_action :authenticate_user!, except: [:show]
 
@@ -16,10 +16,13 @@ class OffersController < ApplicationController
   end
 
   def create
-    @offer = @socialconnection.offers.create(offer_params)
-    @offer.title = @offer.title.squish
-    @offer.category_id = @socialconnection.category_id
+    # @offer = @socialconnection.offers.create(offer_params)
+    # @offer.title = @offer.title.squish
+    # @offer.category_id = @socialconnection.category_id
+    # binding.pry
 
+    @offer = current_user.offers.create(offer_params)
+    
     if @offer.save
       redirect_to offers_path, notice: "Your offer was created successfully!"
     else

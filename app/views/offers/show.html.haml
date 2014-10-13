@@ -10,14 +10,14 @@
               .featured
                 = image_tag "http://img1.coastalliving.timeinc.net/sites/default/files/image/2010/11/getaways/half-moon-bay-jamaica-l.jpg"
 
-                = link_to user_profile_path( @offer.socialconnection.user.username ), class: "social-user pull-left m-r-md" do
+                = link_to user_profile_path( @offer.user.username ), class: "social-user pull-left m-r-md" do
                   .thumb-md.pull-left.m-r-md
-                    = image_tag( @offer.socialconnection.profile_picture, class: "img-circle" )
+                    = image_tag( @offer.user.profile_picture, class: "img-circle" )
                   .clear
                     .username.font-bold
-                      = @offer.socialconnection.username
+                      = @offer.user.username
                     %small.follow-metric.block
-                      = "#{@offer.socialconnection.followers} Followers / #{@offer.socialconnection.media_count} Media"
+                      = "#{@offer.user.followers} Followers / #{@offer.user.media_count} Media"
 
 
           .col-md-5.no-padding
